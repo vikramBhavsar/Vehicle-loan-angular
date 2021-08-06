@@ -1,0 +1,105 @@
+-- Master Tables -- 
+admin_table 
+	auid - identity, int, primary key
+	name varchar
+	email_id varchar
+	password varchar
+
+user_table
+	uid <- identity, int, primary key
+	email_id - varchar
+	password - varchar
+
+user_info 
+	uid <- foreign key of uid from user_table. (acts as a primary key)
+	first_name- varchar,
+	middle_name - varchar,
+	last_name - varchar,
+	age - int (check age > some_min_age)
+	gender - char,
+	mobile_no - varchar,
+	Address - varchar,
+	state - varchar,
+	city - varchar,
+	pin_code - varchar.
+	account_no varchar() - foreign Key to bank account.
+
+
+Employement_details:
+	uid <- foreign key.
+	TOE - foreign key to toi in TYPE_OF_EMPLOYMENT,	
+	yearly_income - money,
+	Existing_EMI_monthly - money
+
+
+TYPE_OF_EMPLOYEMENT
+	toi - identity primary key
+	employement_type - Varchar
+	(Example: 'salaried' and 'self employed')
+
+VEHICLE_DETAILS
+	V_ID IDENTITY PRIMARY KEY INT,
+	car_make_id - foreign key
+	CAR_MODEL varchar()
+	ex_showrorom price money
+
+car_make_
+	car_make_id identity primary key int,
+	car_make varchar
+
+user_Identity_documents
+	uid - foreign_key
+	adhaar_card varchar, - file path
+	pan_card varchar - file path,
+	photo varchar - file path
+	latest_salary_slip varchar - file path
+
+ ---- main tables ---- (Transaction tables) 
+loan_application
+	lapp_id indentity primary key int,
+	uid - foreign_key, -- works for user_table, user_info, employment_details, ui documents.
+	loan_ammount - money
+	loan_tenure - int (check loan_tenure > 1)  (in months)
+	rate_of_interest - float.
+	apply_date datetime,
+	isSecondHand boolean/int  (1/0)
+	ageOld int.
+	status: (disapproved/approved/pending)
+
+
+	
+Loan_details:
+	l_details_id identity primary key int
+	uid - foreign_key, -- works for user_table, user_info, employment_details.
+	admin_id - foreign_key for admin table.
+	status - char (A/R) = (approved/rejected/)
+	lapp_id <- foreign_key -- for loan ammount, rate and tenure.
+	status_update_date datetime
+
+
+
+bank_account:
+	account_name - varchar primary key
+
+bank_payments:
+	uid - 
+	accoun_no - 
+	l_details_id - 
+	MonthlyDate - 
+	principalAmmuount - 
+	interest.
+	total - (wont be inside of the database. will be added at front end using angular.)
+	status:(P/U) - meaning paid or unpaid.
+	
+
+
+ 
+	
+
+
+
+
+
+
+
+

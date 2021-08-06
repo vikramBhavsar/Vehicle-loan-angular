@@ -1,0 +1,91 @@
+<!-- <p>eligibity-check works!</p> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <h2 class="display-2">Confused? read how our loans works</h2>
+            <p class="lead"><strong>Salaried Individuals</strong></p>
+            <ul>
+                <li class="lead">Loan tenure upto 7 years for new car and 5 for used</li>
+                <li class="lead">upto 100% of on road price.</li>
+                <li class="lead">Individuals who are a minimum of 21 years of age at the time of applying for the loan, and no older than 60 at the end of the loan tenure</li>
+                <li class="lead">Should earn a minimum of 3,00,000 per annum</li>
+
+            </ul>
+            <p class="lead"><strong>Self employed Individuals</strong></p>
+                <li class="lead">Loan tenure upto 7 years for new car and 5 for used</li>
+                <li class="lead">Upto 80% of car's valuation</li>
+                <li class="lead">Individuals who are a minimum of 21 years of age at the time of applying for the loan, and no older than 65 at the end of the loan tenure</li>
+                <li class="lead">Should earn a minimum of 4,00,00 per annum</li>
+            <p></p>
+
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <h2 class="display-2">Check whether you are eligible for Vehicle Loan</h2>
+
+            <h3 class="lead"><strong>Select your Loan type</strong></h3>
+            <select class="form-select" aria-label="Default select example">
+                <option selected value="1">New Car</option>
+                <option value="2">Used Car</option>
+              </select>
+
+              
+            <div class="section-1 mt-4">
+                <p class="lead"><strong>Your Details</strong></p>
+            
+                <!-- age -->
+                <label for="ageInp" class="form-label">Enter your age</label>
+                <input type="number" id="ageInp" class="form-control" placeholder="age">
+            
+                <!-- yearly salary -->
+                <label for="salaryInp" class="form-label">Enter your yearly salary</label>
+                <input type="number" id="salaryInp" class="form-control" placeholder="Yearly salary">
+            
+                <!-- type of employement code  -->
+                <div class="mt-4">
+                    <p class="lead"><strong>Enter your work information</strong></p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="toiRadioChoice" id="toiRadioChoice1" checked>
+                        <label class="form-check-label" for="toiRadioChoice1">
+                            Salaried
+                        </label>
+
+                    </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="toiRadioChoice" id="toiRadioChoice2">
+                            <label class="form-check-label" for="toiRadioChoice2">
+                                Self Employed
+                            </label>
+                        </div>
+                
+                        <!-- Currently running any EMI? -->
+                        <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" (click)="toggleEmi()" [checked]="emiChecked" id="haveEmiCheckBox">
+                        <label class="form-check-label" for="haveEmiCheckBox">Do you have any ongoing EMI?</label>
+                        </div>
+                
+                        <!-- monthly running emi -->
+                        <div *ngIf="emiChecked">
+                        <label for="emiInp" class="form-label">Enter running monthly EMI</label>
+                        <input type="number" id="emiInp" class="form-control" placeholder="Running Monthly EMI">
+                    </div>
+                </div>
+            </div>
+
+
+              <div class="section-2 mt-4">
+                  <p class="lead"><strong>Enter your loan details</strong></p>
+                  <label for="loanAmmountInp" class="form-label">Enter your Loan Ammount</label>
+                  <input type="number" class="form-control">
+        
+                  <label for="loanTenureInp" class="form-label">Loan Tenure in months</label>
+                  <input type="number" class="form-control">
+              </div>
+        
+              <div class="section-3 mt-4 mb-4">
+                  <button class="btn btn-outline-primary">Check Eligiblity</button>
+              </div>
+        </div>  
+    </div>
+</div>
+
