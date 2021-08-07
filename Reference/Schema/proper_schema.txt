@@ -54,10 +54,14 @@ user_Identity_documents
 	photo varchar - file path
 	latest_salary_slip varchar - file path
 
+STATUS 	
+	STATUS_ID 
+	STATUS_VAL
  ---- main tables ---- (Transaction tables) 
 loan_application
 	lapp_id indentity primary key int,
 	uid - foreign_key, -- works for user_table, user_info, employment_details, ui documents.
+	V_ID int foreign key - for vehicle details
 	loan_ammount - money
 	loan_tenure - int (check loan_tenure > 1)  (in months)
 	rate_of_interest - float.
@@ -65,7 +69,6 @@ loan_application
 	isSecondHand boolean/int  (1/0)
 	ageOld int.
 	status: (disapproved/approved/pending)
-
 
 	
 Loan_details:
@@ -79,6 +82,7 @@ Loan_details:
 
 
 bank_account:
+
 	account_name - varchar primary key
 
 bank_payments:
