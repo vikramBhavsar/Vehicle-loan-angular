@@ -1,6 +1,61 @@
+
+.c_first{
+    background-color: #ffb703;
+}
+
+.c_second
+{
+    display: block;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ .c_fourth{
+     background-color: #219ebc;
+     color: white;
+     margin-top: 40px;
+     padding-left:5px;
+     padding-bottom: 5px;
+ }
+
+ .c_fifth{
+     
+    padding-left:30px;
+    padding-right:30px;
+    padding-top:30px;
+    font-size: 20px;
+ }
+
+ .c_seven{
+    display: block;
+    font-weight: bolder;
+    padding-left: 5px;
+ }
+
+ .c_eight{
+    float:left;
+    width:50% ;
+    height:80%; 
+    margin-right:10px
+ }
+
+ .c_nine{
+    padding-bottom: 20px;
+    font-weight: bold;
+ }
+
+ .c_ten{
+    font-weight: bolder; 
+    text-align: center;
+ }
+
+ .c_eleven{
+    font-weight: bold;
+ }
+
 .icon-display {
     transform: scale(5);
     vertical-align: middle;
 }
  
-    
