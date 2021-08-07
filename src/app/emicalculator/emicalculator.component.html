@@ -1,0 +1,68 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    EMI CALULATOR 
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 80%;" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">EMI CALCULATOR</h5> 
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body"> 
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-4">
+            <label for="amount">LOAN AMOUNT</label> 
+            <input id="amount" type="number" [(ngModel)]="principal" value="50000000" min="100000" max="10000000" oninput="rangeInput.value=amount.value" />
+            <input id="rangeInput" type="range" min="100000" max="10000000" oninput="amount.value=rangeInput.value" />
+             
+            <br>
+            <h6 class="range1">₹ 1Lac</h6> 
+            <h6 class="range2">₹ 1Cr</h6> 
+            <pre>
+
+            </pre>
+            <label for="tenure">TENURE (IN YEARS)</label><br>
+            <input id="amount1" type="number" [(ngModel)]="years" value="4" min="1" max="8" oninput="rangeInput1.value=amount1.value" />
+            <input id="rangeInput1" type="range" min="1" max="8" oninput="amount1.value=rangeInput1.value" />
+             
+            <br> 
+            <br>
+            <h6 class="range1">1</h6> 
+            <h6 class="range2">8</h6>  
+            <br> 
+            <br>
+            <br>
+            <label for="roi">INTEREST RATE (% P.A.)</label><br>
+            <input id="amount2" type="number" [(ngModel)]="rateofinterest" value="10" min="7" max="17.5" oninput="rangeInput2.value=amount2.value" />
+            <input id="rangeInput2" type="range" min="7" max="17.5" oninput="amount2.value=rangeInput2.value" /> 
+             
+            <br>
+            <br>
+            <h6 class="range1">7</h6>
+            <h6 class="range2">17.5</h6> 
+          </div>
+        <div class="col-md-4 ml-auto"> 
+            <pre>
+              <h5>Monthly Home Loan EMI <br>₹ {{EMI}}</h5>
+              <h5>Principal Amount <br>₹ {{principal}}</h5>
+              <h5>Interest Amount <br>₹ some number</h5>
+              <h5>Total Amount Payable <br>₹ total</h5> 
+            </pre>
+        </div>
+        </div>
+          </div>
+          </div>
+        <div class="modal-footer">
+          <button (click)="onClick()" type="button" class="btn btn-primary">Calculate EMI</button> 
+          
+          
+        </div>
+      </div>
+    </div>
+  </div> 
+
+

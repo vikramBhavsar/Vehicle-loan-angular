@@ -1,0 +1,36 @@
+.modal-body
+{
+    text-align: left;
+}
+#rangeInput, #rangeInput1, #rangeInput2
+{
+   width:95%;
+   float:right;
+  
+}
+h6.range1
+{
+    display: inline;
+    float:left;
+}
+h6.range2 
+{
+    display: inline;
+    float:right;
+}
+#amount, #amount1, #amount2
+{
+    float:right;
+    
+}
+.col-md-4 ml-auto 
+{
+    float:right;
+    width:50%;
+    
+}
+.col-md-4
+{
+    float: left;
+    width:50%;
+}
