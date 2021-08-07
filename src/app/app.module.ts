@@ -9,15 +9,23 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 import { AppComponent } from './app.component';
+import { EligibityCheckComponent } from './eligibity-check/eligibity-check.component';
 import { HomeComponent } from './home/home.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AdmindashboardComponent
+    AdmindashboardComponent,
+    EligibityCheckComponent,
+    HomeComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,

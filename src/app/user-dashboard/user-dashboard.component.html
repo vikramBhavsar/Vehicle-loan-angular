@@ -1,0 +1,144 @@
+<div class="container">
+  <h4 class="display-4">Your Info</h4>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <strong>Name:</strong>
+      <p class="lead">Vikram bhavsar</p>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <strong>Email:</strong>
+      <p class="lead">vikrambhavsar@gmail.com</p>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+      <strong>Age:</strong>
+      <p class="lead">22</p>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+      <strong>Gender:</strong>
+      <p class="lead">Male</p>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+      <strong>Mobile No:</strong>
+      <p class="lead">9867451425</p>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+      <strong>Accout No:</strong>
+      <p class="lead">ICIC76153</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div *ngIf="haveLoan; then hasBlock; else doesntBlock"></div>
+
+  <!-- if the user has the loan -->
+  <ng-template #hasBlock>
+    <!-- showing loan information -->
+    <h5 class="display-5">Your Loan Details</h5>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <strong>Loan Ammount:</strong>
+        <p class="lead">27,00,000</p>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <strong>Loan Tenure:</strong>
+        <p class="lead">18 Months</p>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <strong>Approved on:</strong>
+        <p class="lead">21st July 2021</p>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- showing vehicle information -->
+    <h5 class="display-5">Vehicle Details</h5>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+        <strong>Vehicle Make:</strong>
+        <p class="lead">Hundau</p>
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+        <strong>Model:</strong>
+        <p class="lead">Tucson</p>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- showing EMI information -->
+    <h5 class="display-5">EMI Schedule</h5>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" class="lead">Date</th>
+          <th scope="col">Pricipal</th>
+          <th scope="col">Interest</th>
+          <th scope="col">Total payment</th>
+          <th scope="col">Balance</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">21st July 2021</th>
+          <td>14000</td>
+          <td>7000.15</td>
+          <td>21000</td>
+          <td>9873000</td>
+          <td>Paid</td>
+        </tr>
+        <tr>
+          <th scope="row">21st Aug 2021</th>
+          <td>14000</td>
+          <td>7000.15</td>
+          <td>21000</td>
+          <td>9873000</td>
+          <td>
+            Unpaid <a href="" class="btn btn-outline-success ms-4">Pay now</a>
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="row">21st Aug 2021</th>
+          <td>14000</td>
+          <td>7000.15</td>
+          <td>21000</td>
+          <td>9873000</td>
+          <td>Unpaid</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+
+  <!-- if the user does not have the loan -->
+  <ng-template #doesntBlock> 
+      <div class="loan-container p-5 bg-dark">
+
+        <div class="row">
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-6">
+                <h4 class="display-4">
+                    Buy Your Dream car!
+                </h4>
+                <p class="lead">Instant car loan</p>
+                <a href="" class="btn btn-outline-light">Apply For Loan</a>
+            </div>
+
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-6 text-center">
+                <p class="lead">V-SKY offers you best car loans worth upto 100% of the on road price.</p>
+                <p class="lead">Apply Now to get an instant approval of Car Loan</p>
+
+            </div>
+        </div>
+      </div>    
+  </ng-template>
+</div>

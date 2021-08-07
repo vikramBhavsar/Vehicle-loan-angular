@@ -1,0 +1,47 @@
+Priority 1:
+The entire Loan application process
+
+Priority 2:
+Login, - suchet 
+Registration, - yamini 
+User dashbooard, - vikram 
+admin dashboard,- yamini.
+vechicle details form - ketaki
+loan offers form - suchet.
+upload doc form, - ketaki
+payment gateway. - vikram 
+Client details - more user_info, Type of employement. - Ketaki
+
+
+application_form/ apply loan.
+nvar ancchor vehi, pload etc.
+router-outler
+
+
+Priority 3:
+Entire from start to end: 
+1: Client information
+2: Rejected list
+3: loan Application
+4: Approved list 
+
+
+Priority 4:
+Authentication.
+
+Priority 5:
+Bank details and payment gateway,
+
+loan application proces
+personal details.
+Employement details - TOE,
+Vehicle Details - car make etc.
+Loan offers - 
+Document upload. 
+
+
+
+
+
+
+
