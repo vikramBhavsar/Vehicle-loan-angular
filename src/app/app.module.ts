@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { PersonalDetailsComponent } from './personal-details/personal-details.component';
 import { EmicalculatorComponent } from './emicalculator/emicalculator.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
+import { UDDetailsComponent } from './uddetails/uddetails.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -25,7 +26,6 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +33,7 @@ import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.compo
     PersonalDetailsComponent,
     EmicalculatorComponent,
     VehicleDetailsComponent,
+    UDDetailsComponent,
     AdmindashboardComponent,
     EligibityCheckComponent,
     HomeComponent,
