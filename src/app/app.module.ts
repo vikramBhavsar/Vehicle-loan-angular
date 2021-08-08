@@ -18,6 +18,12 @@ import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { LoanApplicationComponent } from './loan-application/loan-application.component';
+import { LoanOfferComponent } from './loan-offer/loan-offer.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
+import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 
 
 @NgModule({
@@ -30,7 +36,13 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     AdmindashboardComponent,
     EligibityCheckComponent,
     HomeComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    LoanApplicationComponent,
+    LoanOfferComponent,
+    UserLoginComponent,
+    UserRegistrationComponent,
+    AdminRegistrationComponent,
+    PaymentGatewayComponent
   ],
   imports: [
     BrowserModule,
