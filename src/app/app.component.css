@@ -11,7 +11,7 @@
     background-color: #ffb703;
 }
 #footer {
-    position : absolute;
+    /* position : absolute; */
     bottom : 0;
     background-color: #f15913;
     color:white;
