@@ -1,0 +1,21 @@
+.spacer{
+    flex: 1 1 auto;
+}
+.c_navbar
+{
+    background-color: #023047;
+    color: white;
+}
+.c_apply_loan
+{
+    background-color: #ffb703;
+}
+#footer {
+    /* position : absolute; */
+    bottom : 0;
+    background-color: #f15913;
+    color:white;
+    width:100%;
+    height : 40px;
+    margin-top : 40px;
+  }
