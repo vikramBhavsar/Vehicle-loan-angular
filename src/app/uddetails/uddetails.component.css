@@ -1,0 +1,15 @@
+.custom-file-input {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    
+}
+button
+{
+    height: 45px;
+    width:80px;
+}
+h1
+{
+    text-align: center;
+}
