@@ -1,0 +1,33 @@
+
+
+.c_first
+{
+    width: 1000px;
+    padding-top: 40px;
+    padding-bottom:30px;
+    margin: auto;
+}
+
+.c_second
+{
+    padding-top: 30px;
+}
+ .c_third
+{
+    padding-bottom: 30px;
+} 
+
+.c_fourth
+{
+    width: 1200px;
+    margin: auto;
+    background-color: wheat;
+}
+
+.c_fifth
+{
+    padding-top: 20px;
+    text-align: center;
+    font-weight: bolder;
+}
+

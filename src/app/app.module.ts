@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { MatToolbarModule} from '@angular/material/toolbar';
@@ -18,6 +20,7 @@ import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { EmploymentDetailsComponent } from './employment-details/employment-details.component';
 
 
 @NgModule({
@@ -30,7 +33,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     AdmindashboardComponent,
     EligibityCheckComponent,
     HomeComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    EmploymentDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
