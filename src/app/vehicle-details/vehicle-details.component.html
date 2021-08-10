@@ -1,13 +1,111 @@
 <h1>Vehicle Details</h1> 
-
+<br> 
+<h3>CAR MAKE</h3> <pre></pre> 
 <div class="input-group mb-3">
-    <h3>CAR MAKE</h3> 
     <label class="input-group-text" for="inputGroupSelect01">Options</label>
-    <select class="form-select" id="inputGroupSelect01">
+    <select [(ngModel)] = "selectedvalue" class="form-select" id="inputGroupSelect01" >
       <option selected>Choose...</option>
-      <option value="1">HYUNDAI</option>
-      <option value="2">TATA</option>
-      <option value="3">VOLKSWAGON</option>
-      <option value="3">HONDA</option> 
-    </select>
-  </div> 
+      <option >{{carmakearray[0]}}</option> 
+      <option >{{carmakearray[1]}}</option>
+      <option >{{carmakearray[2]}}</option>
+      <option >{{carmakearray[3]}}</option>  
+      <option >{{carmakearray[4]}}</option>  
+      <option >{{carmakearray[5]}}</option>  
+      <option >{{carmakearray[6]}}</option>  
+      <option >{{carmakearray[7]}}</option>  
+    </select><br>
+    <div [ngSwitch] = "getChar()"> 
+      <div *ngSwitchCase="'Audi'">
+        <select class="form-select" id="inputGroupSelect02" > 
+          <option selected>Choose...</option>
+          <option>Audi Q2</option> 
+          <option>Audi A3 2021</option>
+          <option>Audi A4</option>
+          <option>Audi A6</option> 
+          <option>Audi S5 Sprotback</option> 
+        </select> 
+      </div> 
+      <div *ngSwitchCase="'BMW'"> 
+        <select class="form-select" id="inputGroupSelect02" > 
+          <option selected>Choose...</option>
+          <option>BMW X1</option>
+          <option>BMW 2 Series Gran Coupe</option>
+          <option>BMW 3 Series</option>
+          <option>BMW Z4</option> 
+          <option>BMW X7</option> 
+        </select> 
+      </div>
+      <div *ngSwitchCase="'Chevrolet'">
+        <select class="form-select" id="inputGroupSelect02" style="width: 100px; position: relative;"> 
+          <option selected>Choose...</option>
+          <option>Chevrolet Aveo U-VA</option>
+          <option>Chevrolet Beat</option>
+          <option>Cherolet Aveo</option>
+          <option>Chevrolet Captiva</option>
+          <option>Chevrolet Corvette</option> 
+        </select> 
+      </div>
+      <div *ngSwitchCase="'Fiat'">
+        <select class="form-select" id="inputGroupSelect02" style="width: 100px; position: relative;"> 
+          <option selected>Choose...</option>
+          <option>Fiat Adventure</option>
+          <option>Fiat Avventura Urban Cross</option>
+          <option>Fiat Avventura</option>
+          <option>Fiat Abarth Avventura</option>
+          <option>Fiat Ducato</option>  
+        </select> 
+      </div>
+      <div *ngSwitchCase="'Ford'">
+        <select class="form-select" id="inputGroupSelect02" style="width: 100px; position: relative;"> 
+          <option selected>Choose...</option>
+          <option>Ford Figo</option>
+          <option>Ford Freestyle</option>
+          <option>Ford Aspire</option>
+          <option>Ford Eco Sport</option>
+          <option>Ford Endeavor</option>   
+        </select> 
+      </div>
+      <div *ngSwitchCase="'Honda'">
+        <select class="form-select" id="inputGroupSelect02" style="width: 100px; position: relative;"> 
+          <option selected>Choose...</option>
+          <option>Honda Amaze</option>
+          <option>Honda Jazz</option>
+          <option>Honda WR-V</option>
+          <option>Honda City</option>
+          <option>Honda All New City</option>   
+        </select> 
+      </div>
+      <div *ngSwitchCase="'Hyundai'">
+        <select class="form-select" id="inputGroupSelect02" style="width: 100px; position: relative;"> 
+          <option selected>Choose...</option>
+          <option>Hyundai Grand i10 Nios</option>
+          <option>Hyundai i20</option>
+          <option>Hyundai Venue</option>
+          <option>Hyundai Verna</option>
+          <option>Hyundai Creta</option>   
+        </select> 
+      </div>
+      <div *ngSwitchCase="'Mercedes'">
+        <select class="form-select" id="inputGroupSelect02" style="width: 100px; position: relative;"> 
+          <option selected>Choose...</option>
+          <option>Mercedes-Benz A-Class Limousine</option>
+          <option>Mercedes-Benz GLA</option>
+          <option>Mercedes-Benz GLC</option>
+          <option>Mercedes-Benz GLC Coupe</option>
+          <option>Mercedes-Benz GLS</option>   
+        </select> 
+      </div> 
+    </div>
+    <div> 
+      <input type="text" value="{{ex_showroom_price[0]}}" readonly/> 
+    </div>
+</div>
+
+   
+
+
+
+
+
+    
+    

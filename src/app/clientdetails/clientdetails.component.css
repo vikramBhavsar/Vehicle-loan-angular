@@ -1,0 +1,11 @@
+h1{
+    margin-top: 25px;
+    color: white;
+}
+tbody{
+    color:whitesmoke;
+}
+thead{
+    color:yellow;
+    font-weight: bold;
+}

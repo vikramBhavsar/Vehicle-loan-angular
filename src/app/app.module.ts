@@ -10,18 +10,25 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-
 import { AppComponent } from './app.component';
 import { EligibityCheckComponent } from './eligibity-check/eligibity-check.component';
 import { HomeComponent } from './home/home.component';
 import { PersonalDetailsComponent } from './personal-details/personal-details.component';
 import { EmicalculatorComponent } from './emicalculator/emicalculator.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
+import { UDDetailsComponent } from './uddetails/uddetails.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { EmploymentDetailsComponent } from './employment-details/employment-details.component';
-
+import { ClientdetailsComponent } from './clientdetails/clientdetails.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoanApplicationComponent } from './loan-application/loan-application.component';
+import { LoanOfferComponent } from './loan-offer/loan-offer.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
+import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +37,19 @@ import { EmploymentDetailsComponent } from './employment-details/employment-deta
     PersonalDetailsComponent,
     EmicalculatorComponent,
     VehicleDetailsComponent,
+    UDDetailsComponent,
     AdmindashboardComponent,
     EligibityCheckComponent,
     HomeComponent,
     UserDashboardComponent,
-    EmploymentDetailsComponent
+    EmploymentDetailsComponent,
+    ClientdetailsComponent,
+    LoanApplicationComponent,
+    LoanOfferComponent,
+    UserLoginComponent,
+    UserRegistrationComponent,
+    AdminRegistrationComponent,
+    PaymentGatewayComponent
   ],
   imports: [
     BrowserModule,
