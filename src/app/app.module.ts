@@ -18,6 +18,8 @@ import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { ClientdetailsComponent } from './clientdetails/clientdetails.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     AdmindashboardComponent,
     EligibityCheckComponent,
     HomeComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    ClientdetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
