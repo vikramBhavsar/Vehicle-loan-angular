@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { MatToolbarModule} from '@angular/material/toolbar';
@@ -18,6 +20,7 @@ import { UDDetailsComponent } from './uddetails/uddetails.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { EmploymentDetailsComponent } from './employment-details/employment-details.component';
 import { ClientdetailsComponent } from './clientdetails/clientdetails.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoanApplicationComponent } from './loan-application/loan-application.component';
@@ -39,6 +42,7 @@ import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.compo
     EligibityCheckComponent,
     HomeComponent,
     UserDashboardComponent,
+    EmploymentDetailsComponent,
     ClientdetailsComponent,
     LoanApplicationComponent,
     LoanOfferComponent,
@@ -57,6 +61,7 @@ import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.compo
     MatButtonModule,
     MatMenuModule,
     MatButtonToggleModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],
