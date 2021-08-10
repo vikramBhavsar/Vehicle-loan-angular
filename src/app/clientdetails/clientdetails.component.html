@@ -1,0 +1,33 @@
+<!-- <p>clientdetails works!</p> -->
+
+<div>
+    <h1>CLIENT DETAILS</h1><hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>USER ID</th>
+                <th>FIRSTNAME</th>
+                <th>LASTNAME</th>
+                <th>AGE</th>
+                <th>GENDER</th>
+                <th>MOBILE NO</th>
+                <th>E-MAIL ID</th>
+                <th>BANK ACCOUNT_NO</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let client of clientdetails">
+                <td>{{client.uid}}</td>
+                <td>{{client.firstName}}</td>
+                <td>{{client.lastName}}</td>
+                <td>{{client.age}}</td>
+                <td>{{client.gender}}</td>
+                <td>{{client.mobileNo}}</td>
+                <td>{{client.emailId}}</td>
+                <td>{{client.accountNo}}</td>
+            </tr>
+        </tbody>
+    
+    </table>
+</div>
