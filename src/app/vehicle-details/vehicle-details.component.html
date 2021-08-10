@@ -1,9 +1,10 @@
 <h1>Vehicle Details</h1> 
 <br> 
+
 <h3>CAR MAKE</h3> <pre></pre> 
 <div class="input-group mb-3">
     <label class="input-group-text" for="inputGroupSelect01">Options</label>
-    <select [(ngModel)] = "selectedvalue" class="form-select" id="inputGroupSelect01" >
+    <select [(ngModel)] = "selectedvalue" class="form-select" id="inputGroupSelect01" style="width: 1000px; margin: auto;">
       <option selected>Choose...</option>
       <option >{{carmakearray[0]}}</option> 
       <option >{{carmakearray[1]}}</option>
@@ -12,15 +13,16 @@
       <option >{{carmakearray[4]}}</option>  
       <option >{{carmakearray[5]}}</option>  
       <option >{{carmakearray[6]}}</option>  
-      <option >{{carmakearray[7]}}</option>  
-    </select><br>
+      <option >{{carmakearray[7]}}</option>   
+    </select><br> 
+    <h3>CAR MODEL</h3> <pre></pre> 
     <div [ngSwitch] = "getChar()"> 
-      <div *ngSwitchCase="'Audi'">
+      <div *ngSwitchCase="'Audi'"> 
         <select class="form-select" id="inputGroupSelect02" > 
           <option selected>Choose...</option>
-          <option>Audi Q2</option> 
-          <option>Audi A3 2021</option>
-          <option>Audi A4</option>
+          <option value="1">Audi Q2 </option>  
+          <option value="2">Audi A3 2021</option>
+          <option>Audi A4</option> 
           <option>Audi A6</option> 
           <option>Audi S5 Sprotback</option> 
         </select> 
@@ -95,10 +97,8 @@
           <option>Mercedes-Benz GLS</option>   
         </select> 
       </div> 
-    </div>
-    <div> 
-      <input type="text" value="{{ex_showroom_price[0]}}" readonly/> 
-    </div>
+    </div> 
+    <h3>EX-SHOWROOM PRICE</h3>  <br>
 </div>
 
    
