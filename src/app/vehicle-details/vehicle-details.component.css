@@ -1,5 +1,8 @@
-.input-group mb-3
+h1
 {
-    width:50%;
-    text-align: right;
+    text-align:center;
+}
+h3
+{
+    text-align: left;
 }
