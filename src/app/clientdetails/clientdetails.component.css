@@ -1,11 +1,11 @@
 h1{
     margin-top: 25px;
-    color: white;
+    /* color: white; */
 }
-tbody{
+/* tbody{
     color:whitesmoke;
-}
+} */
 thead{
-    color:yellow;
+    /* color:yellow; */
     font-weight: bold;
 }
