@@ -1,95 +1,84 @@
- <p>personal-details works!</p>
-
- <form style="width:700px;margin: auto;">
-    <div class="form-group row" style="padding-bottom: 20px;">
-      <label for="First name" class="col-sm-2 col-form-label" placeholder="Enter User Id">User id</label>
-      <div class="col-sm-10">
-        <input type="number" class="form-control" id="First name" >
-      </div>
-    </div>
-    <div style="margin:auto;">
-      <div class="col-sm-10">
-        <button type="submit" class="btn btn-primary">Click Here</button>
-      </div>
-    </div>
-</form>
 
 
-<form style="width:700px;margin: auto;">
-    <div class="form-group row" style="padding-bottom: 20px; padding-top: 20px;">
+<div class="c_first">
+<h1 class="c_third">PERSONAL DETAILS</h1>
+<form class="c_second">
+    <div class="form-group row">
       <label for="First name" class="col-sm-2 col-form-label">First name</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="First name" >
+         <input type="text" class="form-control" id="First name" value={{user.firstName}} readonly >  
       </div>
     </div>
-    <div class="form-group row "  style="padding-bottom: 20px;">
+    <div class="form-group row">
       <label for="Middle name" class="col-sm-2 col-form-label">Middle name</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="Middle name" >
+        <input type="text" class="form-control" id="Middle name" value={{user.middleName}} readonly >
       </div>
     </div>
-    <div class="form-group row "  style="padding-bottom: 20px;">
+    <div class="form-group row ">
       <label for="Last Name" class="col-sm-2 col-form-label">Last name</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="Last name">
+        <input type="text" class="form-control" id="Last name" value={{user.lastName}} readonly>
       </div>
     </div>
-    <div class="form-group row " style="padding-bottom: 20px;">
+    <div class="form-group row " >
       <label for="Age" class="col-sm-2 col-form-label">Age</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control" id="Age" >
+        <input type="number" class="form-control" id="Age" value={{user.age}} readonly>
       </div>
     </div>
-    <div class="form-group row " style="padding-bottom: 20px;">
+    <div class="form-group row ">
       <label for="Gender" class="col-sm-2 col-form-label">Gender</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="Gender">
+        <input type="text" class="form-control" id="Gender" value={{user.gender}} readonly>
       </div>
     </div>
-    <div class="form-group row " style="padding-bottom: 20px;">
+    <div class="form-group row " >
       <label for="Mobile no " class="col-sm-2 col-form-label">Mobile No</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control" id="Mobile no">
+        <input type="number" class="form-control" id="Mobile no" value={{user.mobileNo}} readonly>
       </div>
     </div>
-    <div class="form-group row " style="padding-bottom: 20px;">
+    <div class="form-group row " >
+      <label for="Account no " class="col-sm-2 col-form-label">Account No</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="Account no" value={{user.accountNo}} readonly>
+      </div>
+    </div>
+    <div class="form-group row ">
       <label for="Email" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="Email">
+        <input type="email" class="form-control" id="Email" value={{user.emailId}} readonly>
       </div>
     </div>
-    <div class="form-group row " style="padding-bottom: 20px;">
-      <label for="Password" class="col-sm-2 col-form-label">Password</label>
-      <div class="col-sm-10">
-        <input type="password" class="form-control" id="Password">
-      </div>
-    </div>
-    <div class="form-group row " style="padding-bottom: 20px;">
+    <div class="form-group row ">
       <label for="Address" class="col-sm-2 col-form-label">Address</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="Address">
+        <input type="text" class="form-control" id="Address" value={{user.uaddress}} readonly>
       </div>
     </div>
-    <div class="form-group row " style="padding-bottom: 20px;">
+    <div class="form-group row ">
       <label for="State" class="col-sm-2 col-form-label">State</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="State">
+        <input type="text" class="form-control" id="State" value={{user.ustate}} readonly>
       </div>
     </div>
-    <div class="form-group row " style="padding-bottom: 20px;">
+    <div class="form-group row ">
       <label for="City" class="col-sm-2 col-form-label">City</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="City">
+        <input type="text" class="form-control" id="City" value={{user.age}} readonly>
       </div>
     </div>
-    <div class="form-group row " style="padding-bottom: 20px;">
-      <label for="Pin code" class="col-sm-2 col-form-label">Pin Code</label>
+    <div class="form-group row ">
+      <label for="Pin code" class="col-sm-2 col-form-label" >Pin Code</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control" id="Pin Code">
+        <input type="number" class="form-control" id="Pin Code" value={{user.pinCode}} readonly>
       </div>
     </div>
 </form>
- 
+</div>
+
+
 
 
 
