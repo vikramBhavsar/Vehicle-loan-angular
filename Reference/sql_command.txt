@@ -110,7 +110,8 @@ CREATE TABLE BANK_PAYMENTS_TBL(
 --============== DUMMY DATA INSERTION
 
 
-
+INSERT INTO TOE_TBL values ('Salaried');
+INSERT INTO TOE_TBL values ('Self Employed');
 INSERT INTO USER_TBL VALUES ('vikrambhavsar@lntinfotech.com','pass123');
 INSERT INTO USER_INFO_TBL VALUES (1,'Vikram','Manoj','Bhavsar',22,'m','9865745815','Thane Circle','Maharashtra','Thane','411578','V-SKY4587');
 INSERT INTO CAR_MAKE_TBL VALUES('Hundai');
