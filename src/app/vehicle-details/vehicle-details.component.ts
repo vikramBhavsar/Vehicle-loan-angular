@@ -18,6 +18,11 @@ ex_showroom_price!:string[];
 
   ngOnInit(): void {
   }
+
+  choiceSelected(selectedValu:string){
+    alert(selectedValu);
+  }
+
   getChar() : String{
     return this.selectedvalue; 
 }
