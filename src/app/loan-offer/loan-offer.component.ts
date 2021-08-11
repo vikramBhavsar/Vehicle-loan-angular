@@ -9,9 +9,9 @@ import { LoanApplicationService } from '../services/loan-application.service';
 })
 export class LoanOfferComponent implements OnInit {
 
-  car_make:string = "hundai";
-  car_model:string = "tuscon";
-  showroom_price:number = 280000;
+  car_make!:string;
+  car_model!:string;
+  showroom_price!:number;
 
   usedCar!:boolean;
 
@@ -45,6 +45,15 @@ export class LoanOfferComponent implements OnInit {
       this.loanApp = data;
       console.log("Showing loanapp");
       console.log(this.loanApp);
+
+      this.loanApplicationService.getVehicleDetails(this.loanApp.vid).subscribe(data =>{
+        console.log("This is vehicle details from the server");
+        console.log(data);
+
+        this.car_make = data.carMake;
+        this.car_model = data.carModel;
+        this.showroom_price = data.exShowroomPrice;
+      });
     });
   }
 
@@ -104,6 +113,12 @@ export class LoanOfferComponent implements OnInit {
   }
 
   sendLoanOfferData(idex:number){
-    alert(this.loanOffers[idex].loanAmmount + " " + this.loanOffers[idex].loanTenure + " " + this.loanOffers[idex].rateOfInterest);
+    this.loanApp.loanAmmount = this.loanOffers[idex].loanAmmount;
+    this.loanApp.loanTenure = this.loanOffers[idex].loanTenure;
+    this.loanApp.rateOfInterest = this.loanOffers[idex].rateOfInterest;
+    this.loanApplicationService.updateLoanApplication(this.loanApp).subscribe(data =>{
+     console.log(data); 
+    });
   }
 }
+
