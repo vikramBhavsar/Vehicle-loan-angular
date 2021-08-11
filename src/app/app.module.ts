@@ -29,6 +29,8 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 import { ListOfLoanApplicationComponent } from './list-of-loan-application/list-of-loan-application.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { ListOfLoanApplicationComponent } from './list-of-loan-application/list-
     UserRegistrationComponent,
     AdminRegistrationComponent,
     PaymentGatewayComponent,
-    ListOfLoanApplicationComponent
+    ListOfLoanApplicationComponent,
+    PaymentGatewayComponent
   ],
   imports: [
     BrowserModule,
