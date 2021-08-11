@@ -11,23 +11,22 @@ import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.compo
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { LoanOfferComponent } from './loan-offer/loan-offer.component';
 
 const routes: Routes = [{ path: 'home',component:HomeComponent},
 { path: 'about',component:HomeComponent},
 { path: 'contact',component:HomeComponent},
-{ path: 'EMI_calculator',component:HomeComponent},
-{ path: 'register',component:HomeComponent},
-{ path: 'apply_loan',component:HomeComponent},
+{ path: 'EMI_calculator',component:EmicalculatorComponent},
+{ path: 'check-eligibility',component:EligibityCheckComponent},
 { path: 'user_login',component:HomeComponent},
 { path: 'admin_login',component:HomeComponent},
-{ path: 'admindashboard',component:AdmindashboardComponent},
 { path: 'clientdetails',component:ClientdetailsComponent},
 { path: 'register',component:UserRegistrationComponent},
 { path: 'apply_loan',component:LoanApplicationComponent,
   children:[
     {path:'personal-details',component:PersonalDetailsComponent},
-    {path:'check-eligibility',component:EligibityCheckComponent},
     {path:'vehicle-details',component:VehicleDetailsComponent},
+    {path:'loan-offers',component:LoanOfferComponent},
     {path:'vehicle-details',component:VehicleDetailsComponent},
   ]},
 { path: 'user_login',component:UserDashboardComponent},

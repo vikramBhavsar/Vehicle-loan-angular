@@ -3,31 +3,42 @@
   <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-12">
       <strong>Name:</strong>
-      <p class="lead">Vikram bhavsar</p>
+      <p class="lead">{{userDashboard?.firstName}} - {{userDashboard?.lastName}}</p>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-12">
       <strong>Email:</strong>
-      <p class="lead">vikrambhavsar@gmail.com</p>
+      <p class="lead">{{userDashboard?.emailId}}</p>
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-6 col-6">
       <strong>Age:</strong>
-      <p class="lead">22</p>
+      <p class="lead">{{userDashboard?.age}}</p>
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-6 col-6">
       <strong>Gender:</strong>
-      <p class="lead">Male</p>
+      <div *ngIf="(userDashboard?.gender === 'm'); then maleBlock else femaleBlock"></div>
+
+      <ng-template #maleBlock>
+        <p class="lead">Male</p>
+      </ng-template>
+
+      <ng-template #femaleBlock>
+        <p class="lead">Female</p>
+      </ng-template>
+
+
+      <!-- <p class="lead">Male</p> -->
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-6 col-6">
       <strong>Mobile No:</strong>
-      <p class="lead">9867451425</p>
+      <p class="lead">{{userDashboard?.mobileNo}}</p>
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-6 col-6">
       <strong>Accout No:</strong>
-      <p class="lead">ICIC76153</p>
+      <p class="lead">ICIC76153 -- data not coming from db at that column</p>
     </div>
   </div>
 
@@ -42,17 +53,17 @@
     <div class="row">
       <div class="col-lg-3 col-md-3 col-sm-6 col-6">
         <strong>Loan Ammount:</strong>
-        <p class="lead">27,00,000</p>
+        <p class="lead">{{userDashboard?.loanAmmount | currency:'INR'}}</p>
       </div>
 
       <div class="col-lg-3 col-md-3 col-sm-6 col-6">
         <strong>Loan Tenure:</strong>
-        <p class="lead">18 Months</p>
+        <p class="lead">{{userDashboard?.loanTenure}}</p>
       </div>
 
       <div class="col-lg-3 col-md-3 col-sm-6 col-6">
         <strong>Approved on:</strong>
-        <p class="lead">21st July 2021</p>
+        <p class="lead">21st July 2021 -- data not coming from DB. add date column</p>
       </div>
     </div>
 
@@ -63,12 +74,12 @@
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-6">
         <strong>Vehicle Make:</strong>
-        <p class="lead">Hundau</p>
+        <p class="lead">{{userDashboard?.carMake}}</p>
       </div>
 
       <div class="col-lg-6 col-md-6 col-sm-6 col-6">
         <strong>Model:</strong>
-        <p class="lead">Tucson</p>
+        <p class="lead">{{userDashboard?.carModel}}</p>
       </div>
     </div>
 
@@ -85,7 +96,6 @@
           <th scope="col">Interest</th>
           <th scope="col">Total payment</th>
           <th scope="col">Balance</th>
-          <th scope="col">Status</th>
         </tr>
       </thead>
       <tbody>
@@ -95,7 +105,6 @@
           <td>7000.15</td>
           <td>21000</td>
           <td>9873000</td>
-          <td>Paid</td>
         </tr>
         <tr>
           <th scope="row">21st Aug 2021</th>
@@ -103,9 +112,6 @@
           <td>7000.15</td>
           <td>21000</td>
           <td>9873000</td>
-          <td>
-            Unpaid <a href="" class="btn btn-outline-success ms-4">Pay now</a>
-          </td>
         </tr>
 
         <tr>
@@ -114,7 +120,6 @@
           <td>7000.15</td>
           <td>21000</td>
           <td>9873000</td>
-          <td>Unpaid</td>
         </tr>
       </tbody>
     </table>
