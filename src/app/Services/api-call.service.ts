@@ -10,7 +10,7 @@ import { Personalinfo } from '../Models/personalinfo';
 export class ApiCallService {
 
   private ApiUrl="http://localhost:30623/api"
-
+  
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -25,6 +25,6 @@ export class ApiCallService {
 
   getById(id:any): Observable<Personalinfo> {
     return this.httpClient.get<Personalinfo>(this.ApiUrl + '/PersonalInfo/' + id)
-   
-  }
+   }
+    
 }

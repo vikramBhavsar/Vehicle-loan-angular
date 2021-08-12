@@ -22,13 +22,15 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { EmploymentDetailsComponent } from './employment-details/employment-details.component';
 import { ClientdetailsComponent } from './clientdetails/clientdetails.component';
-import { HttpClientModule } from '@angular/common/http';
+
 import { LoanApplicationComponent } from './loan-application/loan-application.component';
 import { LoanOfferComponent } from './loan-offer/loan-offer.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-import { UserRegistrationComponent } from './user-registration/user-registration.component';
+
 import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.compo
     UserLoginComponent,
     UserRegistrationComponent,
     AdminRegistrationComponent,
-    PaymentGatewayComponent
+    PaymentGatewayComponent,
+
   ],
   imports: [
     BrowserModule,
