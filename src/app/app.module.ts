@@ -29,7 +29,9 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 import { ListOfLoanApplicationComponent } from './list-of-loan-application/list-of-loan-application.component';
-import { HttpClientModule } from '@angular/common/http';
+import { DetailLoanApplicationComponent } from './detail-loan-application/detail-loan-application.component';
+import { ListOfApprovedApplicationComponent } from './list-of-approved-application/list-of-approved-application.component';
+import { ListOfRejectedApplicationComponent } from './list-of-rejected-application/list-of-rejected-application.component';
 
 
 @NgModule({
@@ -53,7 +55,10 @@ import { HttpClientModule } from '@angular/common/http';
     AdminRegistrationComponent,
     PaymentGatewayComponent,
     ListOfLoanApplicationComponent,
-    PaymentGatewayComponent
+    PaymentGatewayComponent,
+    DetailLoanApplicationComponent,
+    ListOfApprovedApplicationComponent,
+    ListOfRejectedApplicationComponent
   ],
   imports: [
     BrowserModule,

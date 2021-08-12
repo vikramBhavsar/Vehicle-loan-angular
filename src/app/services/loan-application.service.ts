@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { LoanApplication } from '../models/loan-application';
+import { LoanApplication, LoanApplicationList } from '../models/loan-application';
 import { ViewVehicleDetails } from '../models/view-vehicle-details';
+import { UserDashboardView } from '../models/user-dashboard-view';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,11 @@ export class LoanApplicationService {
   }
 
   getLoanList(status_id:number){
-    return this.http.get<LoanApplication[]>(this.loanAppUrl+`loan-application/${status_id}`);
+    return this.http.get<LoanApplicationList[]>(this.loanAppUrl+`loan-application/${status_id}`);
+  }
+
+  getLoanApplicationJoinById(lappid:number){
+    return this.http.get<UserDashboardView>(this.loanAppUrl+`loan-view-details/${lappid}`);
   }
 
 }

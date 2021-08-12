@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserDashboardView } from '../models/user-dashboard-view';
+import { LoanDetailsInfo } from '../models/loan-details-info';
 import { UserDashboardService } from '../services/user-dashboard.service';
 
 @Component({
@@ -10,18 +10,21 @@ import { UserDashboardService } from '../services/user-dashboard.service';
 export class UserDashboardComponent implements OnInit {
 
   haveLoan:boolean = true;
+  
 
-  userDashboard?:UserDashboardView;
+  userDashboard!:LoanDetailsInfo;
 
   constructor(private userDashService:UserDashboardService) { }
 
   ngOnInit(): void {
 
     this.userDashService.getUserData(1).subscribe(data => {
-      this.userDashboard = data
+      this.userDashboard = data;
       console.log("After getting the data");
       console.log(this.userDashboard);
     });
   }
+
+
 
 }

@@ -46,3 +46,34 @@ export class LoanOffer{
             this.rateOfInterest = rateOfInterest;
     }
 }
+
+export class LoanApplicationList{
+    lappid!:number;
+    loanAmmount!:number;
+    loanTenure!:number;
+    rateOfInterest!:number;
+    statusId!:number;
+    firstName!:string;
+    middleName!:string;
+    lastName!:string;
+
+    constructor(
+        lappid:number,
+        loanAmmount:number,
+        loanTenure:number,
+        rateOfInterest:number,
+        statusId:number,
+        firstName:string,
+        middleName:string,
+        lastName:string,
+    ){
+        this.lappid = lappid;
+        this.loanAmmount = loanAmmount;
+        this.loanTenure = loanTenure;
+        this.rateOfInterest = rateOfInterest;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.statusId = statusId;
+    }
+}

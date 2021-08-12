@@ -1,6 +1,8 @@
 export class UserDashboardView {
     firstName!:string;
+    middleName!:string;
     lastName!:string;
+    accountNo!:string;
     age!:number;
     gender!:string;
     mobileNo!:string;
