@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VehicleDetailss } from '../models/vehicle-detailss';
+import { ApiCallService } from '../api-call.service';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -6,17 +8,63 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vehicle-details.component.css']
 })
 export class VehicleDetailsComponent implements OnInit {
-carmakearray:string[]; 
-selectedvalue!:string;
-ex_showroom_price!:string[]; 
+VehicleDetailsTbl: VehicleDetailss[] = [];
+selectedvalue!: string;
+selectedvalue1!:string;
 
-  constructor() {
-    this.carmakearray = ["Audi","BMW","Chevrolet","Fiat","Ford","Honda","Hyundai","Mercedes"];
+  constructor(public service: ApiCallService) { 
+  
    }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
+     console.log("hii");
+  this.service.getCarMake().subscribe((data: VehicleDetailss[])=>{
+   console.log(data)
+      this.VehicleDetailsTbl = data;
+    }
+     
+   );
+    //this.VehicleDetailsTbl = [{"carMakeId" : 1,"carMake":"Audi","carModel":"Audi A6","vId":1,"exShowroomPrice":6000000},{"carMakeId" : 2,"carMake":"Hyundai","carModel":"Hyundai AS","vId":2,"exShowroomPrice":7000000}]
+  
+}
+
+  choiceSelected(event:any) 
+  {
+    this.selectedvalue;
+    console.log(event.target.value);
+    console.log("hello");
+     this.service.getbyId(event.target.value).subscribe((data: VehicleDetailss[])=>{
+      console.log(data)
+      this.VehicleDetailsTbl = data; 
+      
+    })
+    
+  
   }
-  getChar() : String{
-    return this.selectedvalue; 
+  modelSelected(event:any) 
+{
+  this.selectedvalue1; 
+  console.log(event.target.value);
+  console.log("hello");
+  this.service.getcarModel(event.target.value).subscribe((data: VehicleDetailss[])=>{
+   console.log(data)
+  this.VehicleDetailsTbl = data; 
+      
+   })
 }
+
+priceSelected(event:any)
+{
+  this.selectedvalue1; 
+  console.log(event.target.value);
+  console.log("hello");
+  this.service.getshowroomprice(event.target.value).subscribe((data: VehicleDetailss[])=>{
+   console.log(data)
+  this.VehicleDetailsTbl = data; 
+  })
 }
+  
+
+}
+
+

@@ -25,6 +25,8 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.compo
     UserRegistrationComponent,
     AdminRegistrationComponent,
     PaymentGatewayComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.compo
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
