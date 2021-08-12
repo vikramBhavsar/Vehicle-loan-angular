@@ -59,6 +59,7 @@ export class EmploymentDetailsComponent implements OnInit {
     this.employee.uid=1;
     this.employee.yearlyIncome=this.Salary?.value;
     this.employee.existingEmiMonthly=this.Emi?.value;
+    console.log("Disolaying employee object");
     console.log(this.employee);
     console.log(this.employeeform.value);
     this.service.create(this.employee).subscribe(res => {

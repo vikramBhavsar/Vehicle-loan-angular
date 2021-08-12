@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+// import { EmploymentDetailsTbl } from '../models/employment-details-tbl';
 import { EmploymentDetailsTbl } from '../Models/employment-details-tbl';
 import { Personalinfo } from '../Models/personalinfo';
 
@@ -9,8 +10,10 @@ import { Personalinfo } from '../Models/personalinfo';
 })
 export class ApiCallService {
 
-  private ApiUrl="http://localhost:30623/api"
-  
+
+  private ApiUrl="http://localhost:6969/api/Main/"
+
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -20,11 +23,12 @@ export class ApiCallService {
   constructor(private httpClient: HttpClient) { }
 
   create(employee:any): Observable<EmploymentDetailsTbl> {
-    return this.httpClient.post<EmploymentDetailsTbl>(this.ApiUrl + '/Employee/', JSON.stringify(employee), this.httpOptions)    
+    return this.httpClient.post<EmploymentDetailsTbl>(this.ApiUrl + 'EmpDetails/', JSON.stringify(employee), this.httpOptions)    
   } 
 
   getById(id:any): Observable<Personalinfo> {
-    return this.httpClient.get<Personalinfo>(this.ApiUrl + '/PersonalInfo/' + id)
-   }
-    
+    return this.httpClient.get<Personalinfo>(this.ApiUrl + `get-personal-details/${id}`)
+   
+  }
 }
+
