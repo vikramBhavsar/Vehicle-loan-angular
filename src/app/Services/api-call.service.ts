@@ -10,7 +10,9 @@ import { Personalinfo } from '../Models/personalinfo';
 })
 export class ApiCallService {
 
+
   private ApiUrl="http://localhost:6969/api/Main/"
+
 
   httpOptions = {
     headers: new HttpHeaders({

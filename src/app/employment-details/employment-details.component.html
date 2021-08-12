@@ -29,14 +29,13 @@
         <label for="salary" class="col-sm-2 col-form-label">Annual Salary</label>
         <div class="col-sm-10">
           <input type="number" class="form-control" #check id="salary" placeholder="Enter Annual Salary" name="salary" formControlName="salary" required >
-        
         <div *ngIf="Salary?.invalid && Salary?.touched" >
           <div *ngIf="Salary?.errors?.required" class="text-danger" >
               Salary is required
           </div>
           <div *ngIf="Salary?.errors?.min" class="text-danger">
               Minimum salary should be greater than 3 lakhs
-          </div>
+          </div> 
         </div>
         </div> 
     </div>

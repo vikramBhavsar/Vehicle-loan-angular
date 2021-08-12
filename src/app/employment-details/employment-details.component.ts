@@ -51,7 +51,7 @@ export class EmploymentDetailsComponent implements OnInit {
   {
     return this.employeeform.get("toe");
   }
-
+   
   onSubmit()
   {
     this.employee=new EmploymentDetailsTbl();

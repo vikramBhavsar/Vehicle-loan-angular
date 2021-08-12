@@ -8,9 +8,10 @@ import { PersonalDetailsComponent } from './personal-details/personal-details.co
 import { EligibityCheckComponent } from './eligibity-check/eligibity-check.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
-import { UserRegistrationComponent } from './user-registration/user-registration.component';
+
+
 import { LoanOfferComponent } from './loan-offer/loan-offer.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { EmploymentDetailsComponent } from './employment-details/employment-details.component';
 import { ListOfLoanApplicationComponent } from './list-of-loan-application/list-of-loan-application.component';

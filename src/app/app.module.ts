@@ -22,12 +22,14 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { EmploymentDetailsComponent } from './employment-details/employment-details.component';
 import { ClientdetailsComponent } from './clientdetails/clientdetails.component';
+
 import { LoanApplicationComponent } from './loan-application/loan-application.component';
 import { LoanOfferComponent } from './loan-offer/loan-offer.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-import { UserRegistrationComponent } from './user-registration/user-registration.component';
+
 import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { ListOfLoanApplicationComponent } from './list-of-loan-application/list-of-loan-application.component';
 import { DetailLoanApplicationComponent } from './detail-loan-application/detail-loan-application.component';
 import { ListOfApprovedApplicationComponent } from './list-of-approved-application/list-of-approved-application.component';
