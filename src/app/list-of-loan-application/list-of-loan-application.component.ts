@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoanApplication } from '../models/loan-application';
+import { LoanApplication, LoanApplicationList } from '../models/loan-application';
 import { LoanApplicationService } from '../services/loan-application.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { LoanApplicationService } from '../services/loan-application.service';
 })
 export class ListOfLoanApplicationComponent implements OnInit {
 
-  loanApps!:LoanApplication[];
+  loanApps!:LoanApplicationList[];
 
   constructor(private loanAppService: LoanApplicationService) { }
 
