@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VehicleDetailss } from '../models/vehicle-detailss';
+import { VehicleDetailss } from '../Models/vehicle-detailss';
 import { ApiCallService } from '../api-call.service';
 
 @Component({
@@ -11,6 +11,7 @@ export class VehicleDetailsComponent implements OnInit {
 VehicleDetailsTbl: VehicleDetailss[] = [];
 selectedvalue!: string;
 selectedvalue1!:string;
+selectedvalue2!:string;
 
   constructor(public service: ApiCallService) { 
   
@@ -55,7 +56,7 @@ selectedvalue1!:string;
 
 priceSelected(event:any)
 {
-  this.selectedvalue1; 
+  this.selectedvalue2; 
   console.log(event.target.value);
   console.log("hello");
   this.service.getshowroomprice(event.target.value).subscribe((data: VehicleDetailss[])=>{

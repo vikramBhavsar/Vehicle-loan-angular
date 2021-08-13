@@ -24,7 +24,8 @@
     <option *ngFor="let cmodel of VehicleDetailsTbl" [value]="cmodel.vId" > 
       {{cmodel.carModel}} 
     </option> 
-  </select>
+  </select> 
+  <label class="input-group-text" for="inputGroupSelect03">Options</label>
   <select (change)="priceSelected($event)"> 
     <option>SELECT</option>
     <option *ngFor="let sp of VehicleDetailsTbl" [value]="sp.vId" > 
