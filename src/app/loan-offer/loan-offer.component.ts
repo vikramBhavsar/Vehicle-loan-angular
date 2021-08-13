@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoanApplication,LoanOffer } from '../models/loan-application';
 import { LoanApplicationService } from '../services/loan-application.service';
+import { ParentChildComService } from '../services/parent-child-com.service';
 
 @Component({
   selector: 'app-loan-offer',
@@ -31,15 +32,26 @@ export class LoanOfferComponent implements OnInit {
     new LoanOffer(0,84,46.9),
   ];
 
+  loanAppIdFromParent!:number;
 
   loanApp!:LoanApplication;
 
-  constructor(private loanApplicationService:LoanApplicationService) { }
+  constructor(private loanApplicationService:LoanApplicationService,
+              private ComCom:ParentChildComService) { 
+
+                this.ComCom.vehicleAnnounced$.subscribe(data=>{
+                  console.log(`Received ${data}`);
+                  this.loanAppIdFromParent = Number(data);
+                });
+
+
+                this.ComCom.callForLoanApplicationId();
+              }
 
   ngOnInit(): void {
     // this.loanApp = new LoanApplication();
 
-    this.loanApplicationService.getLoanApplicationData(1).subscribe(data =>{
+    this.loanApplicationService.getLoanApplicationData(this.loanAppIdFromParent).subscribe(data =>{
       console.log("Showing data");
       console.log(data);
       this.loanApp = data;
@@ -116,6 +128,13 @@ export class LoanOfferComponent implements OnInit {
     this.loanApp.loanAmmount = this.loanOffers[idex].loanAmmount;
     this.loanApp.loanTenure = this.loanOffers[idex].loanTenure;
     this.loanApp.rateOfInterest = this.loanOffers[idex].rateOfInterest;
+
+    if(this.usedCar){
+      this.loanApp.isUsed = 'y';
+      this.loanApp.ageold = this.age;
+    }else{
+      this.loanApp.isUsed = 'n';
+    }
     this.loanApplicationService.updateLoanApplication(this.loanApp).subscribe(data =>{
      console.log(data); 
     });

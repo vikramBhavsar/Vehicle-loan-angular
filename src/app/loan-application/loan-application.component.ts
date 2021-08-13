@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ParentChildComService } from '../services/parent-child-com.service';
 
 @Component({
   selector: 'app-loan-application',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoanApplicationComponent implements OnInit {
 
+  loanAppId!:string;
+
   active:boolean[] = [true,false,false,false,false];
 
-  constructor() { }
+  constructor(private ComCum:ParentChildComService) {
+    this.ComCum.vehicleAnnounced$.subscribe(data=>{
+      this.loanAppId = data;
+    });
+
+    this.ComCum.callForLoan$.subscribe(()=>{
+      this.ComCum.announceVehicleID(this.loanAppId);
+    });
+
+
+   }
 
   ngOnInit(): void {
     

@@ -1,56 +1,68 @@
 <div class="container">
-  <h4 class="display-4">Your Info</h4>
-  <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-12">
-      <strong>Name:</strong>
-      <p class="lead">
-        {{ userDashboard?.firstName }} {{userDashboard?.middleName}} {{ userDashboard?.lastName }}
-      </p>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-12">
-      <strong>Email:</strong>
-      <p class="lead">{{ userDashboard?.emailId }}</p>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-      <strong>Age:</strong>
-      <p class="lead">{{ userDashboard?.age }}</p>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-      <strong>Gender:</strong>
-      <div
-        *ngIf="userDashboard?.gender === 'm'; then maleBlock; else femaleBlock"
-      ></div>
-
-      <ng-template #maleBlock>
-        <p class="lead">Male</p>
-      </ng-template>
-
-      <ng-template #femaleBlock>
-        <p class="lead">Female</p>
-      </ng-template>
-
-      <!-- <p class="lead">Male</p> -->
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-      <strong>Mobile No:</strong>
-      <p class="lead">{{ userDashboard?.mobileNo }}</p>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-      <strong>Accout No:</strong>
-      <p class="lead">{{userDashboard?.accountNo}}</p>
-    </div>
-  </div>
-
-  <hr />
+ 
 
   <div *ngIf="haveLoan; then hasBlock; else doesntBlock"></div>
 
   <!-- if the user has the loan -->
+
+
+
   <ng-template #hasBlock>
+
+    <h4 class="display-4">Your Info</h4>
+
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <strong>Name:</strong>
+        <p class="lead">
+          {{ userDashboard?.firstName }} {{ userDashboard?.middleName }}
+          {{ userDashboard?.lastName }}
+        </p>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <strong>Email:</strong>
+        <p class="lead">{{ userDashboard?.emailId }}</p>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <strong>Age:</strong>
+        <p class="lead">{{ userDashboard?.age }}</p>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <strong>Gender:</strong>
+        <div
+          *ngIf="
+            userDashboard?.gender === 'm';
+            then maleBlock;
+            else femaleBlock
+          "
+        ></div>
+
+        <ng-template #maleBlock>
+          <p class="lead">Male</p>
+        </ng-template>
+
+        <ng-template #femaleBlock>
+          <p class="lead">Female</p>
+        </ng-template>
+
+        <!-- <p class="lead">Male</p> -->
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <strong>Mobile No:</strong>
+        <p class="lead">{{ userDashboard?.mobileNo }}</p>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <strong>Accout No:</strong>
+        <p class="lead">{{ userDashboard?.accountNo }}</p>
+      </div>
+    </div>
+
+    <hr />
+
     <!-- showing loan information -->
     <h5 class="display-5">Your Loan Details</h5>
     <div class="row">
@@ -67,7 +79,7 @@
       <div class="col-lg-3 col-md-3 col-sm-6 col-6">
         <strong>Approved on:</strong>
         <p class="lead">
-          {{userDashboard?.approvedOn | date:'dd-MMM-yyyy' }}
+          {{ userDashboard?.approvedOn | date: "dd-MMM-yyyy" }}
         </p>
       </div>
     </div>
@@ -132,12 +144,12 @@
 
   <!-- if the user does not have the loan -->
   <ng-template #doesntBlock>
-    <div class="loan-container p-5 bg-dark">
+    <div class="loan-container p-5 bg-dark mt-4">
       <div class="row">
         <div class="col-lg-6 col-mg-6 col-sm-6 col-6">
           <h4 class="display-4">Buy Your Dream car!</h4>
           <p class="lead">Instant car loan</p>
-          <a href="" class="btn btn-outline-light">Apply For Loan</a>
+          <button routerLink="apply_loan" (click)="goToApplyLoan()" class="btn btn-outline-light">Apply For Loan</button>
         </div>
 
         <div class="col-lg-6 col-mg-6 col-sm-6 col-6 text-center">

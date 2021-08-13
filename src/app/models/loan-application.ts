@@ -20,7 +20,7 @@ export class LoanApplication {
         Ageold:number,
         StatusId:number){
 
-            this.lappid = Uid;
+            this.lappid = Lappid;
             this.uid = Uid;
             this.vid = Vid;
             this.loanAmmount = LoanAmmount;
