@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiCallService {
 
-  private ApiUrl = "http://localhost:30623/api";
+  private ApiUrl = "http://localhost:6969/api/Main";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -18,7 +18,7 @@ export class ApiCallService {
   { }
 
   getCarMake(): Observable<VehicleDetailss[]> {
-    return this.httpClient.get<VehicleDetailss[]>(this.ApiUrl + '/CarMakeTbl/')
+    return this.httpClient.get<VehicleDetailss[]>(this.ApiUrl + '/CarMakeTbl')
 
 }
 getbyId(id:any): Observable<VehicleDetailss[]> {

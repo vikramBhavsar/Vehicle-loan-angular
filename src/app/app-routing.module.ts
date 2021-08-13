@@ -9,7 +9,7 @@ import { EligibityCheckComponent } from './eligibity-check/eligibity-check.compo
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
-
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { LoanOfferComponent } from './loan-offer/loan-offer.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { UserLoginComponent } from './user-login/user-login.component';

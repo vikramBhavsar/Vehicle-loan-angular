@@ -37,7 +37,15 @@ export class LoanApplicationService {
   }
 
   getLoanApplicationJoinById(lappid:number){
-    return this.http.get<UserDashboardView>(this.loanAppUrl+`loan-view-details/${lappid}`);
+    return this.http.get<UserDashboardView>(this.loanAppUrl+`loan-view-details-loan/${lappid}`);
+  }
+
+  getLoanApplicationJoinByUserId(userid:number){
+    return this.http.get<UserDashboardView>(this.loanAppUrl+`loan-view-details-user/${userid}`);
+  }
+
+  createLoanApplication(lapp:LoanApplication){
+    return this.http.post<LoanApplication>(this.loanAppUrl+'create-loan-app',lapp,this.httpOptions);
   }
 
 }

@@ -1,9 +1,9 @@
-<h1>Vehicle Details</h1> 
+<h3 class="display-3">Select your vehicle details</h3> 
 <br> 
 
-<h3>CAR MAKE</h3> <pre></pre> 
+<!-- <h3 class="display-3">CAR MAKE</h3> <pre></pre>  -->
 <div class="input-group mb-3"> 
-<label class="input-group-text" for="inputGroupSelect01">Options</label>
+<label class="input-group-text" for="inputGroupSelect01">Car Make</label>
 <!-- <select class="form-select" (change)="choiceSelected(selectedvalue)"> 
   <option selected>Choose...</option> 
   <option *ngFor="let cmake of VehicleDetailsTbl" [(ngModel)] = "cmake.carMake">{{cmake.carMake}}</option> 
@@ -14,28 +14,30 @@
   </select>  -->
   <select (change)="choiceSelected($event)">
     <option>SELECT</option>
-    <option *ngFor="let cmake of VehicleDetailsTbl" [value]="cmake.carMakeId" > 
+    <option *ngFor="let cmake of carMakeList" [value]="cmake.carMakeId" > 
       {{cmake.carMake}} 
     </option> 
   </select> 
-  <label class="input-group-text" for="inputGroupSelect02">Options</label> 
+
+
+  <label class="input-group-text" for="inputGroupSelect02">Car Model</label> 
   <select (change)="modelSelected($event)"> 
     <option>SELECT</option>
-    <option *ngFor="let cmodel of VehicleDetailsTbl" [value]="cmodel.vId" > 
+    <option *ngFor="let cmodel of carModelList" [value]="cmodel.vId" > 
       {{cmodel.carModel}} 
     </option> 
   </select>
   <select (change)="priceSelected($event)"> 
     <option>SELECT</option>
-    <option *ngFor="let sp of VehicleDetailsTbl" [value]="sp.vId" > 
+    <option *ngFor="let sp of carPriceList" [value]="sp.vId" > 
       {{sp.exShowroomPrice}} 
     </option> 
   </select>
 </div>
-<!--(change)="choiceSelected($event.target.value)"-->
 
-<!--[(ngModel)] = "selectedvalue1" (change)="modelSelected(carMakeId)"-->
-<!--[(ngModel)] = "selectedvalue" id="inputGroupSelect01" (change)="choiceSelected(selectedvalue)"-->
+<button (click)="makeLoanObject()" class="btn btn-outline-dark">Confirm</button>
+
+
     
 
 

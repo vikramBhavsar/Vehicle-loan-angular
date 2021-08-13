@@ -45,13 +45,18 @@ export class DetailLoanApplicationComponent implements OnInit {
       console.log("data uploaded successfully");
     })
     console.log(this.loanApplication);
-    this.router.navigate(['get', {}]);
+    this.router.navigateByUrl("admin_login");
 
   }
 
   rejectLoan(){
     this.loanApplication.statusId = 3;
+    this.loanApplicationService.updateLoanApplication(this.loanApplication).subscribe(data=>{
+      console.log(data);
+      console.log("data uploaded successfully");
+    })
     console.log(this.loanApplication);
+    this.router.navigateByUrl("admin_login");
   }
 
 
