@@ -1,10 +1,9 @@
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       
       <h1
-        class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"
-        
-        >Admin Dashboard</h1>
+        class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold display-3" >Admin Dashboard</h1>
       <div class="spacer"></div>
       <button mat-raised-button color="warn" [matMenuTriggerFor]="menu3" ><span>
         <mat-icon ><span class="material-icons"  style="margin-top: 5px;" >
@@ -29,44 +28,49 @@
         </div>
       </div>
       <div class="row"   style="margin-top: 35px;">
-        <div class="col-md-3 mx-0">
+        <div class="col-md-3 mx-0 mb-2">
           <div class="card bg-primary text-white h-100">
             <div class="card-body py-5 display-6">Loan Application list</div>
             <div class="card-footer d-flex">
-              <a href="#" class="text-white" style ="text-decoration: none;"> View Details</a>
+              <a class="text-white" routerLink="loan-application-list" style ="text-decoration: none;"> View Details</a>
               
             </div>
           </div>
         </div>
-        <div class="col-md-3 mx-0" >
+        <div class="col-md-3 mx-0 mb-2">
           <div class="card bg-dark text-white h-100" >
             <div class="card-body py-5 display-6">Clients list</div>
             <div class="card-footer d-flex">
-              <a href="#" class="text-white" style ="text-decoration: none; ">View Details</a>
-              
-              
+              <a class="text-white" routerLink="client-details" style ="text-decoration: none;"> View Details</a>
+
             </div>
           </div>
         </div>
-        <div class="col-md-3 mx-0">
+        <div class="col-md-3 mx-0 mb-2">
           <div class="card bg-success text-white h-100">
             <div class="card-body py-5 display-6">Approved List</div>
             <div class="card-footer d-flex">
-              <a href="#" class="text-white" style ="text-decoration: none;"> View Details</a>
+              <a class="text-white" routerLink="approved-list" style ="text-decoration: none;"> View Details</a>
              
               
             </div>
           </div>
         </div>
-        <div class="col-md-3 mx-0">
+        <div class="col-md-3 mx-0 mb-2">
           <div class="card bg-danger text-white h-100">
             <div class="card-body py-5 display-6">Rejected list</div>
             <div class="card-footer d-flex">
-              <a href="#" class="text-white" style ="text-decoration: none;"> View Details</a>
+              <a class="text-white" routerLink="rejected-list" style ="text-decoration: none;"> View Details</a>
              
               
             </div>
           </div>
         </div>
       </div>
-     
+
+
+      <div class="m-4">
+        <router-outlet></router-outlet>
+      </div>
+
+</div> 

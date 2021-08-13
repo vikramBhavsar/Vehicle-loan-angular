@@ -2,20 +2,25 @@
 
     <h3 class="display-3 mb-4">Complete your loan application here.</h3>
     <ul class="nav nav-tabs">
+
+
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="personal-details">Personal Details</a>
+          <a [class]="active[0]? 'nav-link active': 'nav-link'" aria-current="page" (click)="updateNavbar(0)" routerLink="personal-details">Check your personal details</a>
+        </li>
+
+        <li class="nav-item">
+          <a [class]="active[1]? 'nav-link active': 'nav-link'" aria-current="page" (click)="updateNavbar(1)" routerLink="employment-details">Employment Details</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="check-eligibility">Check Eligibility</a>
+          <a [class]="active[2]? 'nav-link active': 'nav-link'" (click)="updateNavbar(2)" routerLink="vehicle-details">Vehicle Details</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="vehicle-details">Vehicle Details</a>
+          <a [class]="active[3]? 'nav-link active': 'nav-link'" (click)="updateNavbar(3)" routerLink="loan-offers">Loan Offers.</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  routerLink="vehicle-details">Documents Upload</a>
+          <a [class]="active[4]? 'nav-link active': 'nav-link'" (click)="updateNavbar(4)" routerLink="vehicle-details">Documents Upload</a>
         </li>
       </ul>
-
 
       <router-outlet></router-outlet>
 </div>

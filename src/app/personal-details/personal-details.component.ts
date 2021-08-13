@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Personalinfo } from '../Models/personalinfo';
+import { ApiCallService } from '../Services/api-call.service';
+
 
 @Component({
   selector: 'app-personal-details',
@@ -7,11 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalDetailsComponent implements OnInit {
 
+  user!:Personalinfo
   
-  constructor() { }
+  constructor( public service: ApiCallService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void  {
+    this.user=new Personalinfo();
+    this.service.getById(1).subscribe((data: Personalinfo)=>{
+      console.log(data)
+      this.user = data;
   }
 
+)  
 }
-
+}
