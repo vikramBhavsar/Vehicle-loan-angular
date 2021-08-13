@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VehicleDetailss } from '../models/vehicle-detailss';
+import { VehicleDetailss } from '../Models/vehicle-detailss';
 import { ApiCallService } from '../api-call.service';
 import { LoanApplication } from '../models/loan-application';
 import { Output, EventEmitter } from '@angular/core';
@@ -12,6 +12,13 @@ import { LoanApplicationService } from '../services/loan-application.service';
   styleUrls: ['./vehicle-details.component.css'],
 })
 export class VehicleDetailsComponent implements OnInit {
+
+VehicleDetailsTbl: VehicleDetailss[] = [];
+selectedvalue!: string;
+selectedvalue1!:string;
+selectedvalue2!:string;
+
+
 
   // event emiter to emit the vehicle id to parent component i.e loan application
   @Output() newItemEvent = new EventEmitter<number>();
