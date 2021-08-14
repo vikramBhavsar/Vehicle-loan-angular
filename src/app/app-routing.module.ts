@@ -9,17 +9,19 @@ import { PersonalDetailsComponent } from './personal-details/personal-details.co
 import { EligibityCheckComponent } from './eligibity-check/eligibity-check.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+
 
 const routes: Routes = [{ path: 'home',component:HomeComponent},
 { path: 'about',component:HomeComponent},
 { path: 'contact',component:HomeComponent},
-{ path: 'EMI_calculator',component:HomeComponent},
+{ path: 'EMI_calculator',component:EmicalculatorComponent},
 { path: 'register',component:HomeComponent},
 { path: 'apply_loan',component:HomeComponent},
-{ path: 'user_login',component:HomeComponent},
-{ path: 'admin_login',component:HomeComponent},
+{ path: 'user_login',component:UserLoginComponent},
+{ path: 'adminlogin',component:AdminloginComponent},
 { path: 'admindashboard',component:AdmindashboardComponent},
 { path: 'clientdetails',component:ClientdetailsComponent},
 { path: 'register',component:UserRegistrationComponent},

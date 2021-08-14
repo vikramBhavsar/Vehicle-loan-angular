@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { MatToolbarModule} from '@angular/material/toolbar';
@@ -8,6 +9,12 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+
+
+
 import { AppComponent } from './app.component';
 import { EligibityCheckComponent } from './eligibity-check/eligibity-check.component';
 import { HomeComponent } from './home/home.component';
@@ -26,6 +33,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +53,8 @@ import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.compo
     UserLoginComponent,
     UserRegistrationComponent,
     AdminRegistrationComponent,
-    PaymentGatewayComponent
+    PaymentGatewayComponent,
+    AdminloginComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +66,12 @@ import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.compo
     MatButtonModule,
     MatMenuModule,
     MatButtonToggleModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCardModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
