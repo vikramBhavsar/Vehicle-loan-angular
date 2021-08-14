@@ -3,6 +3,7 @@ export class LoanApplication {
     lappid!:number;
     uid!:number;
     vid!:number;
+    principalAmmount!:number;
     loanAmmount!:number;
     loanTenure!:number;
     rateOfInterest!:number;

@@ -15,7 +15,7 @@ export class VehicleDetailsComponent implements OnInit {
 
 VehicleDetailsTbl: VehicleDetailss[] = [];
 selectedvalue!: string;
-selectedvalue1!:string;
+selectedvalue1!:string; 
 selectedvalue2!:string;
 
 
@@ -30,9 +30,6 @@ selectedvalue2!:string;
   afterPriceSelect:VehicleDetailss[] = [];
 
   vehicleID!:number;
-
-  selectedvalue!: string;
-  selectedvalue1!: string;
 
   scarMake!: string;
   scarModel!: string;
