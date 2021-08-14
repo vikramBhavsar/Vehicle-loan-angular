@@ -1,1 +1,131 @@
-<p>user-login works!</p>
+<!-- <h1 style="text-align: center;">Login Page</h1>
+<form method="POST"[formGroup]="loginform" (ngSubmit)="onSubmit()" novalidate>
+    <div class="container">
+        <mat-card>
+            <mat-form-field>
+                <input matInput placeholder="Email" formControlName="EmailId">
+                <mat-hint *ngIf="loginform.controls.email.errors">Email is Required</mat-hint>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Password" formControlName="Apassword">
+                <mat-hint *ngIf="loginform.controls.password.errors">Password is Required</mat-hint>
+            </mat-form-field>
+    
+            <button mat-raised-button color="primary" [disabled]="!loginform.valid" type="submit">Login</button>
+        
+        </mat-card>
+    </div>
+        
+
+</form> -->
+<!--  <h4 class="text-center">Login Page</h4> 
+<div class="col-sm-6">
+ <div class="container">
+	<form  [formGroup]="loginform" (ngSubmit)="onSubmit()" novalidate>
+		<div class="form-group">
+			<label for="Email">Email address</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter email" id="email" name="email" />
+            
+        
+        </div>
+        <div class="error" *ngIf="!email1?.valid && (email1?.dirty || email1?.touched)">
+            <div class="error" *ngIf="email1?.errors?.required">
+                 This field is mandatory
+            </div>
+            <div class="error" *ngIf="email1?.errors?.email">
+                Enter valid email id
+           </div>
+
+          </div>
+    
+        <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" id="password" name="password"formControlName="password" placeholder="Password" />
+        </div>
+        <div class="error" *ngIf="!password1?.valid && (password1?.dirty || password1?.touched)">
+            <div class="error" *ngIf="password1?.errors?.required">
+                 This field is mandatory
+            </div>
+            <div class="error" *ngIf="password1?.errors?.pattern">
+                <ul>
+                    <li>At least 8 characters in length</li>
+                    <li>At least 1 lowercase character</li>
+                    <li>At least 1 uppercase character</li>
+                    <li>At least 1 number</li>
+                    <li>At least 1 special character</li>
+                </ul>
+           </div>
+
+          </div>
+         
+    
+        <button type="submit" class="btn btn-primary" [disabled]="!loginform.valid">Submit</button>
+  </form>
+</div>
+<div *ngIf="popup">
+    Check your credentials!
+</div>
+</div>
+ -->
+
+<section class="vh-100 gradient-custom bg">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem; ">
+            <div class="card-body p-5 text-center">
+  
+              <div class="mb-md-5 mt-md-4 pb-5">
+  
+                <h2 class="fw-bold mb-2 text-uppercase">User Login</h2>
+                <p class="text-white-50 mb-5">Please enter your login id and password!</p>
+            <form  [formGroup]="loginform" (ngSubmit)="onSubmit()" novalidate>
+                <div class="form-outline form-white mb-2">
+                    <label  for="email" style="margin-right: 300px; margin-bottom: 10px;">Email</label>
+                  <input for="email" class="form-control form-control-lg" id="email" name="email"formControlName="email" placeholder="Enter email"/>
+                 </div>
+                
+                 <div class="error" *ngIf="!email1?.valid && (email1?.dirty || email1?.touched)">
+                    <div class="error" *ngIf="email1?.errors?.required">
+                         This field is mandatory
+                    </div>
+                    <div class="error" *ngIf="email1?.errors?.email">
+                        Enter valid email id
+                   </div>
+        
+                  </div>
+              
+  
+                <div class="form-outline form-white mb-4">
+                    <label for="password" style="margin-right: 300px; margin-bottom: 10px;">Password</label>
+                  <input type="password"  class="form-control form-control-lg" id="password" name="password" formControlName="password" placeholder="Enter password" pattern="^[a-zA-z0-9]*"/>
+                  
+                </div>
+                <div class="error" *ngIf="!password1?.valid && (password1?.dirty || password1?.touched)">
+                    <div class="error" *ngIf="password1?.errors?.required">
+                         This field is mandatory
+                    </div>
+                   
+                  </div>
+  
+                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+  
+                <button type="submit" class="btn btn-primary" [disabled]="!loginform.valid">Login</button>
+  
+                
+            </form> 
+              </div>
+              <div *ngIf="popup" style=" font-size: large; font-weight:100px;  color:yellow">
+                Check your credentials!
+            </div>
+             
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+

@@ -10,6 +10,12 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+
+
+
 import { AppComponent } from './app.component';
 import { EligibityCheckComponent } from './eligibity-check/eligibity-check.component';
 import { HomeComponent } from './home/home.component';
@@ -29,11 +35,13 @@ import { UserLoginComponent } from './user-login/user-login.component';
 
 import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { ListOfLoanApplicationComponent } from './list-of-loan-application/list-of-loan-application.component';
 import { DetailLoanApplicationComponent } from './detail-loan-application/detail-loan-application.component';
 import { ListOfApprovedApplicationComponent } from './list-of-approved-application/list-of-approved-application.component';
 import { ListOfRejectedApplicationComponent } from './list-of-rejected-application/list-of-rejected-application.component';
+
 
 
 @NgModule({
@@ -56,6 +64,7 @@ import { ListOfRejectedApplicationComponent } from './list-of-rejected-applicati
     UserRegistrationComponent,
     AdminRegistrationComponent,
     PaymentGatewayComponent,
+    AdminloginComponent,
     ListOfLoanApplicationComponent,
     PaymentGatewayComponent,
     DetailLoanApplicationComponent,
@@ -72,6 +81,11 @@ import { ListOfRejectedApplicationComponent } from './list-of-rejected-applicati
     MatButtonModule,
     MatMenuModule,
     MatButtonToggleModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCardModule
     ReactiveFormsModule,
     HttpClientModule
   ],
