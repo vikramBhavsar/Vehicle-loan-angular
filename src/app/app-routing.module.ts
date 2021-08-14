@@ -8,7 +8,7 @@ import { PersonalDetailsComponent } from './personal-details/personal-details.co
 import { EligibityCheckComponent } from './eligibity-check/eligibity-check.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-
+import { UDDetailsComponent } from './uddetails/uddetails.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
@@ -47,7 +47,7 @@ const routes: Routes = [{ path: 'home',component:HomeComponent},
     {path:'employment-details',component:EmploymentDetailsComponent},
     {path:'vehicle-details',component:VehicleDetailsComponent},
     {path:'loan-offers',component:LoanOfferComponent},
-    {path:'vehicle-details',component:VehicleDetailsComponent},
+    {path:'upload-documents',component:UDDetailsComponent},
   ]},
 ];
 
