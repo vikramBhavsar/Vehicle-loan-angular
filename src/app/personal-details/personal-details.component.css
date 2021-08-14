@@ -1,0 +1,22 @@
+.c_first
+{
+    background-color: wheat;
+    width:800px;
+    margin: auto; 
+    margin-top: 30px;
+   
+}
+.c_second
+{
+    padding-top: 20px;
+    padding-bottom: 30px;
+    width:700px;
+    margin: auto;
+}
+
+.c_third
+{
+    padding-top: 20px;
+    text-align: center;
+    font-weight: bolder;
+}
