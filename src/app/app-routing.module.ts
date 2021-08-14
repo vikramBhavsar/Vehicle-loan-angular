@@ -9,6 +9,8 @@ import { EligibityCheckComponent } from './eligibity-check/eligibity-check.compo
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
+import { UserLoginComponent } from './user-login/user-login.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { LoanOfferComponent } from './loan-offer/loan-offer.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
@@ -19,10 +21,13 @@ import { DetailLoanApplicationComponent } from './detail-loan-application/detail
 import { ListOfApprovedApplicationComponent } from './list-of-approved-application/list-of-approved-application.component';
 import { ListOfRejectedApplicationComponent } from './list-of-rejected-application/list-of-rejected-application.component';
 
+
 const routes: Routes = [{ path: 'home',component:HomeComponent},
 { path: 'about',component:HomeComponent},
 { path: 'contact',component:HomeComponent},
 { path: 'EMI_calculator',component:EmicalculatorComponent},
+{ path: 'user_login',component:UserLoginComponent},
+{ path: 'adminlogin',component:AdminloginComponent},
 { path: 'check-eligibility',component:EligibityCheckComponent},
 { path: 'detail-loan-application/:id',component:DetailLoanApplicationComponent},
 { path: 'user_login',component:UserDashboardComponent},
@@ -34,8 +39,7 @@ const routes: Routes = [{ path: 'home',component:HomeComponent},
     { path:'rejected-list',component:ListOfRejectedApplicationComponent}
   ]
 },
-{ path: 'user_login',component:UserLoginComponent},
-// { path: 'admin_login',component:HomeComponent},
+
 { path: 'register',component:UserRegistrationComponent},
 { path: 'apply_loan',component:LoanApplicationComponent,
   children:[
