@@ -9,6 +9,8 @@ import { ClientdetailServiceService } from '../Services/clientdetail-service.ser
 })
 export class ClientdetailsComponent implements OnInit {
 
+  public sessionStorage = sessionStorage;
+
   clientdetails: ViewClientDetails[]=[];
   constructor(public service: ClientdetailServiceService) { }     
 

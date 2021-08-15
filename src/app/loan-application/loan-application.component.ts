@@ -7,6 +7,7 @@ import { ParentChildComService } from '../services/parent-child-com.service';
   styleUrls: ['./loan-application.component.css']
 })
 export class LoanApplicationComponent implements OnInit {
+  public sessionStorage = sessionStorage;
 
   loanAppId!:string;
 

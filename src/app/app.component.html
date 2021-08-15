@@ -16,29 +16,60 @@
 
 
   <a mat-button routerLink="EMI_calculator">EMI-Calculator</a>
-  <a
+
+  <div *ngIf="(sessionStorage.getItem('userid') && sessionStorage.getItem('role')== 'user'); then uLoggedIn else notLoggedIn"></div>
+  <ng-template #uLoggedIn>
+    <a
     mat-raised-button
     class="c_apply_loan"
     style="margin-right: 30px"
-    routerLink="apply_loan"
-    >Apply Loan</a
+    routerLink="user_dashboard"
+    >My Dashboard</a
   >
 
-  <a
+  <a mat-button routerLink="logout">Logout</a>
+  </ng-template>
+
+  <ng-template #notLoggedIn>
+
+    <a
     mat-raised-button
     color="warn"
     style="margin-right: 30px"
     routerLink="register"
     >Sign Up</a
   >
+
   <button mat-raised-button color="accent" [matMenuTriggerFor]="menu1">
     Login
   </button>
+  </ng-template>
+
+  <div *ngIf="(sessionStorage.getItem('userid') && sessionStorage.getItem('role') == 'admin'); then aLoggedIn"></div>
+
+  <ng-template #aLoggedIn>
+    <a
+    mat-raised-button
+    class="c_apply_loan m-2"
+    style="margin-right: 30px"
+    routerLink="admin_dashboard"
+    >Admin Dashboard</a
+  >
+
+  <a mat-button routerLink="logout">Logout</a>
+
+  </ng-template>
+
+
+
+
+
   <mat-menu #menu1="matMenu">
     <a mat-button routerLink="user_login">User</a>
-    <a mat-button routerLink="admin_login">Admin</a>
+    <a mat-button routerLink="adminlogin">Admin</a>
   </mat-menu>
 </mat-toolbar>
+
 
 <router-outlet></router-outlet>
 

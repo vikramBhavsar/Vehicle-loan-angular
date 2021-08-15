@@ -13,6 +13,8 @@ import { UserRegistrationService } from '../Services/user-registration.service';
 })
 export class UserRegistrationComponent implements OnInit {
 
+  public sessionStorage = sessionStorage;
+
   luser!:Logininfo;
   ruser!:Userinfo;
 
