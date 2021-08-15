@@ -5,6 +5,9 @@ import { Component, OnInit } from '@angular/core';
 import { UserDashboardService } from '../Services/user-dashboard.service';
 import { UserDashboardView } from '../models/user-dashboard-view';
 import { LoanDetailsInfo } from '../models/loan-details-info';
+import { UserDashboardService } from '../services/user-dashboard.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-user-dashboard',
   templateUrl: './user-dashboard.component.html',
@@ -12,21 +15,35 @@ import { LoanDetailsInfo } from '../models/loan-details-info';
 })
 export class UserDashboardComponent implements OnInit {
 
+  public sessionStorage = sessionStorage;
+
   haveLoan:boolean = true;
 
   userDashboard?:LoanDetailsInfo;
 
-  constructor(private userDashService:UserDashboardService) 
-  { 
-  }
+  constructor(private userDashService:UserDashboardService,
+            private router: Router,
+    ) { }
+
 
   ngOnInit(): void {
 
-    this.userDashService.getUserData(1).subscribe(data => {
-      this.userDashboard = data;
-      console.log("After getting the data");
-      console.log(this.userDashboard);
-    });
+    if(sessionStorage.getItem("userid")!=null){
+      this.userDashService.getUserData(Number(sessionStorage.getItem("userid"))).subscribe(data => {
+        this.userDashboard = data;
+        console.log("After getting the data");
+        console.log(this.userDashboard);
+  
+        if(this.userDashboard == null){
+          this.haveLoan = false;
+        }
+      });
+    }
+
+  }
+
+  goToApplyLoan(){
+    this.router.navigateByUrl("apply_loan");
   }
 
   principal_amount:number=550000;

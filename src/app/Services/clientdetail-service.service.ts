@@ -7,7 +7,7 @@ import { ViewClientDetails } from '../Models/view-client-details';
   providedIn: 'root'
 })
 export class ClientdetailServiceService {
-private ApiUrl="http://localhost:30623/api";
+private ApiUrl="http://localhost:6969/api/Main";
 httpOptions={
   headers: new HttpHeaders({
     'Content-Type':'application/json'
@@ -16,6 +16,6 @@ httpOptions={
   constructor(private httpClient: HttpClient) { }
   getAll():
   Observable<ViewClientDetails[]>{
-    return this.httpClient.get<ViewClientDetails[]>(this.ApiUrl + '/admindashboard')
+    return this.httpClient.get<ViewClientDetails[]>(this.ApiUrl + '/client-details')
   }
 }

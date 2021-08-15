@@ -1,45 +1,106 @@
-<h1>Upload Documents</h1>
-<br>
-<h3>Aadhar Card</h3>
-<br>
-<div class="input-group mb-3">
-    <div class="custom-file">
-      <input type="file" class="custom-file-input" id="inputGroupFile02" accept=".pdf" > 
-    </div>
-    <div class="input-group-append">
-        <button type="submit">Upload</button>   
-    </div>
-</div> 
-<h3>PAN Card</h3>
-<br>
-<div class="input-group mb-3">
-    <div class="custom-file">
-      <input type="file" class="custom-file-input" id="inputGroupFile02" accept=".pdf"> 
-    </div>
-    <div class="input-group-append">
-        <button type="submit">Upload</button>  
-    </div>
-</div> 
-<h3>Photo</h3>
-<br>
-<div class="input-group mb-3">
-    <div class="custom-file">
-      <input type="file" class="custom-file-input" id="inputGroupFile02" accept=".jpeg,.png"> 
-    </div>
-    <div class="input-group-append">
-        <button type="submit">Upload</button>  
-    </div>
-</div>    
-<h3>6 months salary slip</h3>
-<br> 
-<div class="input-group mb-3">
-    <div class="custom-file">
-      <input type="file" class="custom-file-input" id="inputGroupFile02" accept=".pdf"> 
-    </div>
-    <div class="input-group-append"> 
-        <button type="submit">Upload</button>   
-    </div>
-</div>
-  
-      
+<h2 class="display-2">Upload Documents</h2>
+<br />
 
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+
+        <h3 class="display-6">Aadhar Card</h3>
+        <br />
+        <div class="text-center">
+          <input class="form-control" type="file" (change)="onChange($event)" />
+          <button (click)="onUpload()" class="btn btn-success m-3">Upload</button>
+        </div>
+        
+        <!-- Shareable short link of  uoloaded file -->
+        <div class="container text-center jumbotron" *ngIf="shortLink">
+          <h2>Uploaded Successfully</h2>
+          <h4>Visit Here</h4>
+          <a href="{{ shortLink }}" target="_blank">{{ shortLink }}</a>
+        </div>
+        
+        <!--Flag variable is used here-->
+        <div class="container" *ngIf="loading">
+          <h3>Loading ...</h3>
+        </div>
+        <br />
+    </div>
+
+
+
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+        
+<h3 class="display-6">Pan Card</h3>
+<br />
+<div class="text-center">
+  <input class="form-control" type="file" (change)="onChange1($event)" />
+  <button (click)="onUpload1()" class="btn btn-success m-3">Upload</button>
+</div>
+
+<!-- Shareable short link of  uoloaded file -->
+<div class="container text-center jumbotron" *ngIf="shortLink1">
+  <h2>Uploaded Successfully</h2>
+  <h4>Visit Here</h4>
+  <a href="{{ shortLink1 }}" target="_blank">{{ shortLink1 }}</a>
+</div>
+
+<!--Flag variable is used here-->
+<div class="container" *ngIf="loading">
+  <h3>Loading ...</h3>
+</div>
+<br />
+    </div>
+
+
+
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+
+        <h3 class="display-6">Photo</h3>
+        <br />
+        <div class="text-center">
+          <input class="form-control" type="file" (change)="onChange2($event)" />
+          <button (click)="onUpload2()" class="btn btn-success m-3">Upload</button>
+        </div>
+        
+        <!-- Shareable short link of  uoloaded file -->
+        <div class="container text-center jumbotron" *ngIf="shortLink2">
+          <h2>Uploaded Successfully</h2>
+          <h4>Visit Here</h4>
+          <a href="{{ shortLink2 }}" target="_blank">{{ shortLink2 }}</a>
+        </div>
+        
+        <!--Flag variable is used here-->
+        <div class="container" *ngIf="loading">
+          <h3>Loading ...</h3>
+        </div>
+        <br />
+
+    </div>
+
+
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+        <h3 class="display-6">6 Months Salary Slip</h3>
+        <br />
+        <div class="text-center">
+          <input class="form-control" type="file" (change)="onChange3($event)" />
+          <button (click)="onUpload3()" class="btn btn-success m-3">Upload</button>
+        </div>
+        
+        <!-- Shareable short link of  uoloaded file -->
+        <div class="container text-center jumbotron" *ngIf="shortLink3">
+          <h2>Uploaded Successfully</h2>
+          <h4>Visit Here</h4>
+          <a href="{{ shortLink3 }}" target="_blank">{{ shortLink3 }}</a>
+        </div>
+        
+        <!--Flag variable is used here-->
+        <div class="container" *ngIf="loading">
+          <h3>Loading ...</h3>
+        </div>
+        <br />
+    </div>
+
+</div>
+
+<div class="text-center">
+  <button class="btn btn-primary">Submit</button>
+</div>

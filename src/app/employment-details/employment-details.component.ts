@@ -13,6 +13,8 @@ import { ApiCallService } from '../Services/api-call.service';
 })
 export class EmploymentDetailsComponent implements OnInit {
 
+  public sessionStorage = sessionStorage;
+
   employee!:EmploymentDetailsTbl;
   employeeform!:FormGroup;
   check=false;
@@ -64,7 +66,7 @@ export class EmploymentDetailsComponent implements OnInit {
     {
     this.employee=new EmploymentDetailsTbl();
     this.employee.toeid=Number(this.Toe?.value);
-    this.employee.uid=1;
+    this.employee.uid=Number(sessionStorage.getItem("userid"));
     this.employee.yearlyIncome=this.Salary?.value;
     this.employee.existingEmiMonthly=this.Emi?.value;
     console.log("Displaying employee object");
@@ -76,6 +78,9 @@ export class EmploymentDetailsComponent implements OnInit {
      // this.router.navigateByUrl('/home/')
     }); 
     this.employeeform.get("emi")?.reset();
+
+    //moving on to next page.
+    this.router.navigateByUrl("vehicle-details");
   }
   }
 }

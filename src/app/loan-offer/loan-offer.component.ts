@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoanApplication,LoanOffer } from '../models/loan-application';
 import { LoanApplicationService } from '../services/loan-application.service';
+import { ParentChildComService } from '../services/parent-child-com.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loan-offer',
@@ -31,15 +33,29 @@ export class LoanOfferComponent implements OnInit {
     new LoanOffer(0,84,46.9),
   ];
 
+  monthlyEmi:number[] = [0,0,0,0,0,0,0,0,0];
+
+  loanAppIdFromParent!:number;
 
   loanApp!:LoanApplication;
 
-  constructor(private loanApplicationService:LoanApplicationService) { }
+  constructor(private loanApplicationService:LoanApplicationService,
+              private ComCom:ParentChildComService,
+              private router: Router) { 
+
+                this.ComCom.vehicleAnnounced$.subscribe(data=>{
+                  console.log(`Received ${data}`);
+                  this.loanAppIdFromParent = Number(data);
+                });
+
+
+                this.ComCom.callForLoanApplicationId();
+              }
 
   ngOnInit(): void {
     // this.loanApp = new LoanApplication();
 
-    this.loanApplicationService.getLoanApplicationData(1).subscribe(data =>{
+    this.loanApplicationService.getLoanApplicationData(this.loanAppIdFromParent).subscribe(data =>{
       console.log("Showing data");
       console.log(data);
       this.loanApp = data;
@@ -71,6 +87,9 @@ export class LoanOfferComponent implements OnInit {
     if(!this.usedCar){  
         for(let i = 0; i < this.loanOffers.length;i++ ){
           this.loanOffers[i].loanAmmount = this.newCarLoanAmmount + (( this.newCarLoanAmmount * this.loanOffers[i].rateOfInterest ) / 100);
+          this.monthlyEmi[i]= this.newCarLoanAmmount * this.loanOffers[i].rateOfInterest * (Math.pow((1 + this.loanOffers[i].rateOfInterest),this.loanOffers[i].loanTenure)/(Math.pow((1 + this.loanOffers[i].rateOfInterest),this.loanOffers[i].loanTenure))-1)
+          console.log(this.loanOffers[i].rateOfInterest);
+          console.log(this.loanOffers[i].loanTenure);
         }
 
     }else{  
@@ -84,6 +103,7 @@ export class LoanOfferComponent implements OnInit {
 
         for(let i = 0; i < this.loanOffers.length;i++ ){
           this.loanOffers[i].loanAmmount = currentLoanAmmount + (( currentLoanAmmount * this.loanOffers[i].rateOfInterest ) / 100);
+          this.monthlyEmi[i]= currentLoanAmmount * this.loanOffers[i].rateOfInterest * (Math.pow((1 + this.loanOffers[i].rateOfInterest),this.loanOffers[i].loanTenure)/(Math.pow((1 + this.loanOffers[i].rateOfInterest),this.loanOffers[i].loanTenure))-1)
         }
 
       }else{
@@ -95,9 +115,13 @@ export class LoanOfferComponent implements OnInit {
 
         for(let i = 0; i < this.loanOffers.length;i++ ){
           this.loanOffers[i].loanAmmount = currentLoanAmmount + (( currentLoanAmmount * this.loanOffers[i].rateOfInterest ) / 100);
+          this.monthlyEmi[i]= currentLoanAmmount * this.loanOffers[i].rateOfInterest * (Math.pow((1 + this.loanOffers[i].rateOfInterest),this.loanOffers[i].loanTenure)/(Math.pow((1 + this.loanOffers[i].rateOfInterest),this.loanOffers[i].loanTenure))-1)
+
         }
       }
     }
+
+    console.log(this.monthlyEmi);
   }
 
   usedCarLoanChange(){
@@ -113,12 +137,35 @@ export class LoanOfferComponent implements OnInit {
   }
 
   sendLoanOfferData(idex:number){
+
     this.loanApp.loanAmmount = this.loanOffers[idex].loanAmmount;
     this.loanApp.loanTenure = this.loanOffers[idex].loanTenure;
     this.loanApp.rateOfInterest = this.loanOffers[idex].rateOfInterest;
+
+    if(this.usedCar){
+      this.loanApp.isUsed = 'y';
+      this.loanApp.ageold = this.age;
+
+      if(this.age<3){
+        let eightOfShow = (this.showroom_price * 80 / 100);
+        this.loanApp.principalAmmount = Math.min(eightOfShow,this.usedCarLoan);
+      }else{
+        let fiftyOfShow = (this.showroom_price * 50 / 100);
+        this.loanApp.principalAmmount = Math.min(fiftyOfShow,this.usedCarLoan);
+      }
+     }else{
+      this.loanApp.isUsed = 'n';
+      this.loanApp.principalAmmount = this.newCarLoanAmmount;
+    }
     this.loanApplicationService.updateLoanApplication(this.loanApp).subscribe(data =>{
      console.log(data); 
     });
+
+
+    // moving on to next module.
+    this.router.navigateByUrl("upload-documents");
   }
 }
+
+
 

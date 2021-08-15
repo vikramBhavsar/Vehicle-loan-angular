@@ -9,7 +9,7 @@ import { Userinfo } from '../Models/userinfo';
 })
 export class UserRegistrationService {
 
-  private ApiUrl="http://localhost:30623/api"
+  private ApiUrl="http://localhost:6969/api/Main"
   
   httpOptions = {
     headers: new HttpHeaders({
@@ -21,11 +21,11 @@ export class UserRegistrationService {
   constructor(private httpClient: HttpClient) { }
 
   create(luser:any): Observable<Logininfo> {
-    return this.httpClient.post<Logininfo>(this.ApiUrl + '/Main/user/', JSON.stringify(luser), this.httpOptions)    
+    return this.httpClient.post<Logininfo>(this.ApiUrl + '/user/', JSON.stringify(luser), this.httpOptions)    
   } 
 
   createuser(ruser:any): Observable<Userinfo> {
-    return this.httpClient.post<Userinfo>(this.ApiUrl + '/Main/userinfo', JSON.stringify(ruser), this.httpOptions)    
+    return this.httpClient.post<Userinfo>(this.ApiUrl + '/userinfo', JSON.stringify(ruser), this.httpOptions)    
   } 
 
 }
