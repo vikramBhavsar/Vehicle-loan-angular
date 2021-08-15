@@ -1,8 +1,8 @@
 .c_first
 {
-    background-color: wheat;
+    background-color:#cddafd;
     width:900px;
-    margin: auto; 
+    margin: auto;  
     margin-top: 30px;
    
 }
@@ -11,12 +11,25 @@
     padding-top: 20px;
     padding-bottom: 30px;
     width:700px;
-    margin: auto;
+    margin: auto; 
 }
 
 .c_third
 {
     padding-top: 20px;
     text-align: center;
-    font-weight: bolder;
+    font-weight: 50px;
 }
+
+.c_four
+{
+    margin-top: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.c_five
+{
+    background-color: #fca311;
+}
+

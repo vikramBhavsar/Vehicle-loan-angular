@@ -15,6 +15,7 @@ export class EmploymentDetailsComponent implements OnInit {
 
   employee!:EmploymentDetailsTbl;
   employeeform!:FormGroup;
+  check=false;
 
   constructor(
     public fb: FormBuilder,
@@ -25,10 +26,10 @@ export class EmploymentDetailsComponent implements OnInit {
     ngOnInit()
   {
     this.employeeform = this.fb.group({
-    toe:[' ',Validators.required],
-    salary: [' ',[Validators.required,Validators.min(300000)]],
-    existing_emi: [],
-    emi: []    
+    toe:['',Validators.required],
+    salary: ['',[Validators.required,Validators.min(300000)]],
+    existing_emi: [''],
+    emi: ['']    
   }) 
 }
  
@@ -54,12 +55,19 @@ export class EmploymentDetailsComponent implements OnInit {
    
   onSubmit()
   {
+    if(!this.employeeform?.valid)
+    {
+      alert("Please enter valid data")
+      this.employeeform.get("emi")?.reset();
+    }
+    else
+    {
     this.employee=new EmploymentDetailsTbl();
     this.employee.toeid=Number(this.Toe?.value);
     this.employee.uid=1;
     this.employee.yearlyIncome=this.Salary?.value;
     this.employee.existingEmiMonthly=this.Emi?.value;
-    console.log("Disolaying employee object");
+    console.log("Displaying employee object");
     console.log(this.employee);
     console.log(this.employeeform.value);
     this.service.create(this.employee).subscribe(res => {
@@ -68,6 +76,7 @@ export class EmploymentDetailsComponent implements OnInit {
      // this.router.navigateByUrl('/home/')
     }); 
     this.employeeform.get("emi")?.reset();
+  }
   }
 }
 

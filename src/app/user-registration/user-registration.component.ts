@@ -17,15 +17,15 @@ export class UserRegistrationComponent implements OnInit {
   ruser!:Userinfo;
 
   userregistration=new FormGroup({
-    firstName: new FormControl('',Validators.required),
-    middleName:new FormControl(''),
-    lastName:new FormControl(''),
+    firstName: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z ]*$')]),
+    middleName:new FormControl('',Validators.pattern('^[a-zA-Z ]*$')),
+    lastName:new FormControl('',Validators.pattern('^[a-zA-Z ]*$')),
     email:new FormControl('',[Validators.required,Validators.email]),
-    password:new FormControl('', [Validators.required,Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/)]),
+    password:new FormControl('', [Validators.required,Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{1,}$/),Validators.minLength(8)]),
     cpassword:new FormControl('',Validators.required),
-    age:new FormControl('',Validators.required),
-    gender:new FormControl( Validators.required),
-    mobileNo:new FormControl('',Validators.required),
+    age:new FormControl('',[Validators.required,Validators.min(21),Validators.max(65)]),
+    gender:new FormControl(Validators.required),
+    mobileNo:new FormControl('',[Validators.required]),
     uaddress:new FormControl('',Validators.required),
     ustate:new FormControl('',Validators.required),
     ucity:new FormControl('',Validators.required),
@@ -52,7 +52,7 @@ export class UserRegistrationComponent implements OnInit {
     return this.userregistration.get("middleName");
   }
 
-  get laname()
+  get lname()
   {
     return this.userregistration.get("lastName");
   }
@@ -119,7 +119,7 @@ onsubmit()
   this.luser.emailId=this.email1?.value;
   this.luser.apassword=this.pwd?.value;
   this.ruser.firstName=this.fname?.value;
-  this.ruser.lastName=this.laname?.value;
+  this.ruser.lastName=this.lname?.value;
   this.ruser.middleName=this.mname?.value;
   this.ruser.age=this.age1?.value;
   this.ruser.gender=this.gender1?.value;

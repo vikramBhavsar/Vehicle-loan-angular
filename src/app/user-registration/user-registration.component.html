@@ -1,16 +1,17 @@
-<p>user-registration works!</p>
-
 <div class="c_first">
-<h1 class="c_third">USER REGISTRATION</h1>
+<h2 class="c_third">USER REGISTRATION</h2>
     <form class="c_second" [formGroup]="userregistration" (ngSubmit)="onsubmit()">
         <div class="form-group row">
-          <label for="First name" class="col-sm-2 col-form-label" >First name</label>
+          <label for="First name" class="col-sm-2 col-form-label " >First name</label>
           <div class="col-sm-10">
-             <input type="text" #text class="form-control" id="First name" name="firstName" formControlName="firstName">
+             <input type="text" class="form-control" id="First name" name="firstName" formControlName="firstName">
               <div *ngIf="fname?.invalid && fname?.touched" >
                   <div *ngIf="fname?.errors?.required" class="text-danger" >
                       This field is required
                   </div>
+              </div>
+              <div *ngIf="fname?.errors?.pattern" class="text-danger" >
+                     It should only have letters.
               </div>
           </div>
         </div>
@@ -18,34 +19,53 @@
           <label for="Middle name" class="col-sm-2 col-form-label" >Middle name</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" id="Middle name" name="middleName" formControlName="middleName" >
+            <div *ngIf="mname?.errors?.pattern" class="text-danger" >
+              It should only have letters.
+            </div>
           </div>
         </div>
         <div class="form-group row ">
           <label for="Last Name" class="col-sm-2 col-form-label">Last name</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" id="Last name"  name="lastName" formControlName="lastName" >
+            <div *ngIf="lname?.errors?.pattern" class="text-danger" >
+              It should only have letters.
+            </div>
           </div>
         </div>
         <div class="form-group row ">
                 <label for="Email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
                     <input type="email" class="form-control" id="Email" name="email" formControlName="email" >
+                    <div *ngIf="email1?.invalid && email1?.touched" >
+                      <div *ngIf="email1?.errors?.required" class="text-danger" >
+                          This field is required
+                      </div>
+                  </div>
                 </div>
         </div>
         <div class="form-group row ">
                 <label for="Password" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
                     <input [class.is-invalid]="pwd?.errors?.pattern"type="password" class="form-control" id="Password" name="password" formControlName="password">
-                    <div *ngIf="pwd?.errors?.pattern" class="text-danger">
-                      It should be of atleast 8 characters ,one character and one number.
+                    <div *ngIf="pwd?.invalid && pwd?.touched" >
+                      <div *ngIf="pwd?.errors?.required" class="text-danger" >
+                          This field is required
+                      </div>
                     </div>
+                      <div *ngIf="pwd?.errors?.pattern" class="text-danger">
+                          It should have a uppercase letter,lowercase letter and a number.
+                       </div>
+                      <div *ngIf="pwd?.errors?.minlength" class="text-danger">
+                        It should be of atleast 8 characters.
+                      </div>
                 </div>
         </div>
         <div class="form-group row ">
-            <label for="Confirmpassword" class="col-sm-2 col-form-label">Confirm Password</label>
+            <label for="Confirmpassword" class="col-sm-2 col-form-label" >Confirm Password</label>
                 <div class="col-sm-10">
                     <input [class.is-invalid]="userregistration.errors?.mismatch"type="password" class="form-control" id="Confirmpassword" name="cpassword" formControlName="cpassword">
-                    <small class="text-danger" *ngIf="userregistration.errors?.mismatch">Password dosen't match</small>
+                    <small class="text-danger" *ngIf="userregistration.errors?.mismatch">Password does not match</small>
                 </div>
         </div>
         <div class="form-group row " >
@@ -54,7 +74,13 @@
                     <input type="number" class="form-control" id="Age"  name="age" formControlName="age">
                     <div *ngIf="age1?.invalid && age1?.touched" >
                       <div *ngIf="age1?.errors?.required" class="text-danger" >
-                          This field is required
+                          This field is required.
+                      </div>
+                      <div *ngIf="age1?.errors?.min" class="text-danger" >
+                          Minimum age should be 21.
+                      </div>
+                      <div *ngIf="age1?.errors?.max" class="text-danger" >
+                          Maximum age can be 65.
                       </div>
                     </div>
                 </div>
@@ -81,7 +107,7 @@
         <div class="form-group row " >
           <label for="Mobile no " class="col-sm-2 col-form-label">Mobile No</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="Mobile no" name="mobileNo" formControlName="mobileNo">
+            <input type="text" class="form-control" id="Mobile no" name="mobileNo" formControlName="mobileNo" maxlength="10">
             <div *ngIf="mobno?.invalid && mobno?.touched" >
               <div *ngIf="mobno?.errors?.required" class="text-danger" >
                   This field is required
@@ -140,8 +166,8 @@
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-sm-10 text-center" >
-              <button type="submit" class="btn btn-primary" [disabled]="!userregistration?.valid">Submit</button>
+            <div class="col-sm-10 c_four" >
+              <button type="submit" class="btn c_five" [disabled]="!userregistration?.valid">Register</button>
             </div>
         </div>
     </form>

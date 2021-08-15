@@ -1,8 +1,7 @@
-
-
+ 
 .c_first
 {
-    width: 1000px;
+    width: 800px;
     padding-top: 40px;
     padding-bottom:30px;
     margin: auto;
@@ -10,6 +9,7 @@
 
 .c_second
 {
+    margin-left: 190px;
     padding-top: 30px;
 }
  .c_third
@@ -20,14 +20,43 @@
 .c_fourth
 {
     width: 1200px;
-    margin: auto;
-    background-color: wheat;
+    margin: auto;  
+    margin-top: 30px;
+    background-color:#cddafd;
 }
 
 .c_fifth
 {
     padding-top: 20px;
     text-align: center;
-    font-weight: bolder;
+    font-weight: 50px;
+} 
+
+.c_test
+{
+    margin-right:600px;
 }
 
+.c_test1
+{
+    
+    /* padding:0px; */
+    margin-right:900px; 
+    /* width:190px; */
+}
+
+.c_test2
+{
+    margin-left: 50px;
+}
+
+.c_test3
+{
+    background-color: #fca311;
+    margin-left:150px;
+}
+
+.c_test5
+{
+    margin-right: 0px;   
+}

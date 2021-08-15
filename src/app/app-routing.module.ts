@@ -8,6 +8,7 @@ import { PersonalDetailsComponent } from './personal-details/personal-details.co
 import { EligibityCheckComponent } from './eligibity-check/eligibity-check.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 
 
 import { LoanOfferComponent } from './loan-offer/loan-offer.component';

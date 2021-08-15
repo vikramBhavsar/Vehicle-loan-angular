@@ -96,37 +96,25 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col" class="lead">Date</th>
-          <th scope="col">Pricipal</th>
-          <th scope="col">Interest</th>
-          <th scope="col">Total payment</th>
+          <th scope="col">Month</th>
+          <th scope="col">Beginning amount</th>
+          <th scope="col">EMI</th>
+          <th scope="col">Interest paid</th>
+          <th scope="col">Principal paid</th>
           <th scope="col">Balance</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">21st July 2021</th>
-          <td>14000</td>
-          <td>7000.15</td>
-          <td>21000</td>
-          <td>9873000</td>
-        </tr>
-        <tr>
-          <th scope="row">21st Aug 2021</th>
-          <td>14000</td>
-          <td>7000.15</td>
-          <td>21000</td>
-          <td>9873000</td>
-        </tr>
-
-        <tr>
-          <th scope="row">21st Aug 2021</th>
-          <td>14000</td>
-          <td>7000.15</td>
-          <td>21000</td>
-          <td>9873000</td>
+      <tbody *ngIf="status">
+        <tr *ngFor="let m of Arr(num);index as i;"> 
+              <td>{{objArray[i].month}}</td>
+              <td>{{objArray[i].beginning_amount | number :'1.0-0'}}</td>
+              <td>{{emi | number:'1.0-0'}}</td>
+              <td>{{objArray[i].interest_paid | number:'1.0-0'}}</td>
+              <td>{{objArray[i].principal_paid | number:'1.0-0'}}</td>
+              <td>{{objArray[i].ending_balance | number:'1.0-0'}}</td>
         </tr>
       </tbody>
+      <button (click)="changestatus()" type="submit">Display emi scheduler</button> 
     </table>
   </ng-template>
 
