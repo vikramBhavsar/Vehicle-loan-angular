@@ -45,6 +45,10 @@ import { LogoutComponent } from './logout/logout.component';
 
 
 
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +80,7 @@ import { LogoutComponent } from './logout/logout.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    FormsModule, 
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
