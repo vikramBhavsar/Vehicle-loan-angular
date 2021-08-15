@@ -5,6 +5,7 @@ import { LoanApplication } from '../models/loan-application';
 import { Output, EventEmitter } from '@angular/core';
 import { ParentChildComService } from '../services/parent-child-com.service';
 import { LoanApplicationService } from '../services/loan-application.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -37,7 +38,8 @@ selectedvalue2!:string;
 
   constructor(public service: ApiCallService,
               private loanApplicationService:LoanApplicationService,
-              private componentCommunication:ParentChildComService
+              private componentCommunication:ParentChildComService,
+              private router:Router
     ) {}
 
   ngOnInit(): void {
@@ -93,11 +95,11 @@ selectedvalue2!:string;
 
 
   makeLoanObject(){
-    alert("sending data");
-    let loanApplication = new LoanApplication(0,1,Number(this.vehicleID),0,0,0,'y',0,1);
+    let loanApplication = new LoanApplication(0,Number(sessionStorage.getItem("userid")),Number(this.vehicleID),0,0,0,0,'y',0,1);
     console.log(loanApplication);
     this.loanApplicationService.createLoanApplication(loanApplication).subscribe(data=>{
       this.componentCommunication.announceVehicleID(data.lappid.toString());
+      this.router.navigateByUrl("loan-offers");
     });
     
   }

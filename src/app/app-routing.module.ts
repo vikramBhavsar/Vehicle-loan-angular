@@ -9,7 +9,6 @@ import { EligibityCheckComponent } from './eligibity-check/eligibity-check.compo
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UDDetailsComponent } from './uddetails/uddetails.component';
-import { UserLoginComponent } from './user-login/user-login.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { LoanOfferComponent } from './loan-offer/loan-offer.component';
@@ -20,18 +19,19 @@ import { ListOfLoanApplicationComponent } from './list-of-loan-application/list-
 import { DetailLoanApplicationComponent } from './detail-loan-application/detail-loan-application.component';
 import { ListOfApprovedApplicationComponent } from './list-of-approved-application/list-of-approved-application.component';
 import { ListOfRejectedApplicationComponent } from './list-of-rejected-application/list-of-rejected-application.component';
-
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [{ path: 'home',component:HomeComponent},
 { path: 'about',component:HomeComponent},
 { path: 'contact',component:HomeComponent},
+{ path: 'logout',component:LogoutComponent},
 { path: 'EMI_calculator',component:EmicalculatorComponent},
 { path: 'user_login',component:UserLoginComponent},
 { path: 'adminlogin',component:AdminloginComponent},
 { path: 'check-eligibility',component:EligibityCheckComponent},
 { path: 'detail-loan-application/:id',component:DetailLoanApplicationComponent},
-{ path: 'user_login',component:UserDashboardComponent},
-{ path: 'admin_login',component:AdmindashboardComponent,
+{ path: 'user_dashboard',component:UserDashboardComponent},
+{ path: 'admin_dashboard',component:AdmindashboardComponent,
   children:[
     { path:'client-details',component:ClientdetailsComponent},
     { path:'loan-application-list',component:ListOfLoanApplicationComponent},

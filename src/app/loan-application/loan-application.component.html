@@ -1,4 +1,15 @@
-<div class="container text-center">
+<div
+  *ngIf="
+    sessionStorage.getItem('userid') &&
+      sessionStorage.getItem('role') == 'user';
+    then userLoggedIn;
+    else noUser
+  "
+></div>
+
+
+<ng-template #userLoggedIn>
+  <div class="container text-center">
 
     <h3 class="display-3 mb-4">Complete your loan application here.</h3>
     <ul class="nav nav-tabs">
@@ -24,4 +35,13 @@
 
       <router-outlet></router-outlet>
 </div>
+
+</ng-template>
+
+
+<ng-template #noUser>
+  <h2 class="display-2">Restricted Page</h2>
+</ng-template>
+
+
 

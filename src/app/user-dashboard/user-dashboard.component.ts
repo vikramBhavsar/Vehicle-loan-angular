@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class UserDashboardComponent implements OnInit {
 
+  public sessionStorage = sessionStorage;
+
   haveLoan:boolean = true;
   
 
@@ -21,15 +23,18 @@ export class UserDashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.userDashService.getUserData(1).subscribe(data => {
-      this.userDashboard = data;
-      console.log("After getting the data");
-      console.log(this.userDashboard);
+    if(sessionStorage.getItem("userid")!=null){
+      this.userDashService.getUserData(Number(sessionStorage.getItem("userid"))).subscribe(data => {
+        this.userDashboard = data;
+        console.log("After getting the data");
+        console.log(this.userDashboard);
+  
+        if(this.userDashboard == null){
+          this.haveLoan = false;
+        }
+      });
+    }
 
-      if(this.userDashboard == null){
-        this.haveLoan = false;
-      }
-    });
   }
 
   goToApplyLoan(){

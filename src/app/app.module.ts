@@ -41,6 +41,7 @@ import { ListOfLoanApplicationComponent } from './list-of-loan-application/list-
 import { DetailLoanApplicationComponent } from './detail-loan-application/detail-loan-application.component';
 import { ListOfApprovedApplicationComponent } from './list-of-approved-application/list-of-approved-application.component';
 import { ListOfRejectedApplicationComponent } from './list-of-rejected-application/list-of-rejected-application.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 
@@ -69,7 +70,8 @@ import { ListOfRejectedApplicationComponent } from './list-of-rejected-applicati
     PaymentGatewayComponent,
     DetailLoanApplicationComponent,
     ListOfApprovedApplicationComponent,
-    ListOfRejectedApplicationComponent
+    ListOfRejectedApplicationComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,7 @@ import { ListOfRejectedApplicationComponent } from './list-of-rejected-applicati
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
     ReactiveFormsModule,
     HttpClientModule
   ],

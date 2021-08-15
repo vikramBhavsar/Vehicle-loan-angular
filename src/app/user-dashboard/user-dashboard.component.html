@@ -1,165 +1,181 @@
-<div class="container">
- 
+<div
+  *ngIf="
+    sessionStorage.getItem('userid') &&
+      sessionStorage.getItem('role') == 'user';
+    then userLoggedIn;
+    else noUser
+  "
+></div>
 
-  <div *ngIf="haveLoan; then hasBlock; else doesntBlock"></div>
+<ng-template #userLoggedIn>
+  <div class="container">
+    <div *ngIf="haveLoan; then hasBlock; else doesntBlock"></div>
 
-  <!-- if the user has the loan -->
+    <!-- if the user has the loan -->
 
+    <ng-template #hasBlock>
+      <h4 class="display-4">Your Info</h4>
 
-
-  <ng-template #hasBlock>
-
-    <h4 class="display-4">Your Info</h4>
-
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <strong>Name:</strong>
-        <p class="lead">
-          {{ userDashboard?.firstName }} {{ userDashboard?.middleName }}
-          {{ userDashboard?.lastName }}
-        </p>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12">
-        <strong>Email:</strong>
-        <p class="lead">{{ userDashboard?.emailId }}</p>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <strong>Age:</strong>
-        <p class="lead">{{ userDashboard?.age }}</p>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <strong>Gender:</strong>
-        <div
-          *ngIf="
-            userDashboard?.gender === 'm';
-            then maleBlock;
-            else femaleBlock
-          "
-        ></div>
-
-        <ng-template #maleBlock>
-          <p class="lead">Male</p>
-        </ng-template>
-
-        <ng-template #femaleBlock>
-          <p class="lead">Female</p>
-        </ng-template>
-
-        <!-- <p class="lead">Male</p> -->
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <strong>Mobile No:</strong>
-        <p class="lead">{{ userDashboard?.mobileNo }}</p>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <strong>Accout No:</strong>
-        <p class="lead">{{ userDashboard?.accountNo }}</p>
-      </div>
-    </div>
-
-    <hr />
-
-    <!-- showing loan information -->
-    <h5 class="display-5">Your Loan Details</h5>
-    <div class="row">
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <strong>Loan Ammount:</strong>
-        <p class="lead">{{ userDashboard?.loanAmmount | currency: "INR" }}</p>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <strong>Loan Tenure:</strong>
-        <p class="lead">{{ userDashboard?.loanTenure }}</p>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <strong>Approved on:</strong>
-        <p class="lead">
-          {{ userDashboard?.approvedOn | date: "dd-MMM-yyyy" }}
-        </p>
-      </div>
-    </div>
-
-    <hr />
-
-    <!-- showing vehicle information -->
-    <h5 class="display-5">Vehicle Details</h5>
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-        <strong>Vehicle Make:</strong>
-        <p class="lead">{{ userDashboard?.carMake }}</p>
-      </div>
-
-      <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-        <strong>Model:</strong>
-        <p class="lead">{{ userDashboard?.carModel }}</p>
-      </div>
-    </div>
-
-    <hr />
-
-    <!-- showing EMI information -->
-    <h5 class="display-5">EMI Schedule</h5>
-
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col" class="lead">Date</th>
-          <th scope="col">Pricipal</th>
-          <th scope="col">Interest</th>
-          <th scope="col">Total payment</th>
-          <th scope="col">Balance</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">21st July 2021</th>
-          <td>14000</td>
-          <td>7000.15</td>
-          <td>21000</td>
-          <td>9873000</td>
-        </tr>
-        <tr>
-          <th scope="row">21st Aug 2021</th>
-          <td>14000</td>
-          <td>7000.15</td>
-          <td>21000</td>
-          <td>9873000</td>
-        </tr>
-
-        <tr>
-          <th scope="row">21st Aug 2021</th>
-          <td>14000</td>
-          <td>7000.15</td>
-          <td>21000</td>
-          <td>9873000</td>
-        </tr>
-      </tbody>
-    </table>
-  </ng-template>
-
-  <!-- if the user does not have the loan -->
-  <ng-template #doesntBlock>
-    <div class="loan-container p-5 bg-dark mt-4">
       <div class="row">
-        <div class="col-lg-6 col-mg-6 col-sm-6 col-6">
-          <h4 class="display-4">Buy Your Dream car!</h4>
-          <p class="lead">Instant car loan</p>
-          <button routerLink="apply_loan" (click)="goToApplyLoan()" class="btn btn-outline-light">Apply For Loan</button>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <strong>Name:</strong>
+          <p class="lead">
+            {{ userDashboard?.firstName }} {{ userDashboard?.middleName }}
+            {{ userDashboard?.lastName }}
+          </p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <strong>Email:</strong>
+          <p class="lead">{{ userDashboard?.emailId }}</p>
         </div>
 
-        <div class="col-lg-6 col-mg-6 col-sm-6 col-6 text-center">
-          <p class="lead">
-            V-SKY offers you best car loans worth upto 100% of the on road
-            price.
-          </p>
-          <p class="lead">Apply Now to get an instant approval of Car Loan</p>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+          <strong>Age:</strong>
+          <p class="lead">{{ userDashboard?.age }}</p>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+          <strong>Gender:</strong>
+          <div
+            *ngIf="
+              userDashboard?.gender === 'm';
+              then maleBlock;
+              else femaleBlock
+            "
+          ></div>
+
+          <ng-template #maleBlock>
+            <p class="lead">Male</p>
+          </ng-template>
+
+          <ng-template #femaleBlock>
+            <p class="lead">Female</p>
+          </ng-template>
+
+          <!-- <p class="lead">Male</p> -->
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+          <strong>Mobile No:</strong>
+          <p class="lead">{{ userDashboard?.mobileNo }}</p>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+          <strong>Accout No:</strong>
+          <p class="lead">{{ userDashboard?.accountNo }}</p>
         </div>
       </div>
-    </div>
-  </ng-template>
-</div>
+
+      <hr />
+
+      <!-- showing loan information -->
+      <h5 class="display-5">Your Loan Details</h5>
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+          <strong>Loan Ammount:</strong>
+          <p class="lead">{{ userDashboard?.loanAmmount | currency: "INR" }}</p>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+          <strong>Loan Tenure:</strong>
+          <p class="lead">{{ userDashboard?.loanTenure }}</p>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+          <strong>Approved on:</strong>
+          <p class="lead">
+            {{ userDashboard?.approvedOn | date: "dd-MMM-yyyy" }}
+          </p>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- showing vehicle information -->
+      <h5 class="display-5">Vehicle Details</h5>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+          <strong>Vehicle Make:</strong>
+          <p class="lead">{{ userDashboard?.carMake }}</p>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+          <strong>Model:</strong>
+          <p class="lead">{{ userDashboard?.carModel }}</p>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- showing EMI information -->
+      <h5 class="display-5">EMI Schedule</h5>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col" class="lead">Date</th>
+            <th scope="col">Pricipal</th>
+            <th scope="col">Interest</th>
+            <th scope="col">Total payment</th>
+            <th scope="col">Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">21st July 2021</th>
+            <td>14000</td>
+            <td>7000.15</td>
+            <td>21000</td>
+            <td>9873000</td>
+          </tr>
+          <tr>
+            <th scope="row">21st Aug 2021</th>
+            <td>14000</td>
+            <td>7000.15</td>
+            <td>21000</td>
+            <td>9873000</td>
+          </tr>
+
+          <tr>
+            <th scope="row">21st Aug 2021</th>
+            <td>14000</td>
+            <td>7000.15</td>
+            <td>21000</td>
+            <td>9873000</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+
+    <!-- if the user does not have the loan -->
+    <ng-template #doesntBlock>
+      <div class="loan-container p-5 bg-dark mt-4">
+        <div class="row">
+          <div class="col-lg-6 col-mg-6 col-sm-6 col-6">
+            <h4 class="display-4">Buy Your Dream car!</h4>
+            <p class="lead">Instant car loan</p>
+            <button
+              routerLink="apply_loan"
+              (click)="goToApplyLoan()"
+              class="btn btn-outline-light"
+            >
+              Apply For Loan
+            </button>
+          </div>
+
+          <div class="col-lg-6 col-mg-6 col-sm-6 col-6 text-center">
+            <p class="lead">
+              V-SKY offers you best car loans worth upto 100% of the on road
+              price.
+            </p>
+            <p class="lead">Apply Now to get an instant approval of Car Loan</p>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</ng-template>
+
+<ng-template #noUser>
+  <h2 class="display-2">Restricted Page</h2>
+</ng-template>

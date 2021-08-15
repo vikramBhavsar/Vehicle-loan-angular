@@ -1,128 +1,140 @@
-<div class="container m-4">
+<div
+  *ngIf="
+    sessionStorage.getItem('userid') &&
+      sessionStorage.getItem('role') == 'admin';
+    then adminLoggedin;
+    else noAdmin
+  "
+></div>
+
+<ng-template #adminLoggedin>
+  <div class="container m-4">
     <h6 class="display-6">Loan Application form 1</h6>
 
-
-  <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-12">
-      <strong>Name:</strong>
-      <p class="lead">
-        {{loanDetails.firstName}} - {{loanDetails.lastName}}
-      </p>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-12">
-      <strong>Email:</strong>
-      <p class="lead">{{loanDetails.emailId}}</p>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-      <strong>Age:</strong>
-      <p class="lead">{{loanDetails.age}}</p>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-      <strong>Gender:</strong>
-      <div
-        *ngIf="loanDetails.gender === 'm'; then maleBlock; else femaleBlock"
-      ></div>
-
-      <ng-template #maleBlock>
-        <p class="lead">Male</p>
-      </ng-template>
-
-      <ng-template #femaleBlock>
-        <p class="lead">Female</p>
-      </ng-template>
-
-      <!-- <p class="lead">Male</p> -->
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-      <strong>Mobile No:</strong>
-      <p class="lead">{{loanDetails.mobileNo}}</p>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-      <strong>Account No:</strong>
-      <p class="lead">{{loanDetails.accountNo}}</p>
-    </div>
-
-
-
-  </div>
-
-  <hr />
-
-  <!-- if the user has the loan -->
-  <div>
-    <!-- showing loan information -->
-    <h5 class="display-5">Your Loan Details</h5>
     <div class="row">
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <strong>Loan Ammount:</strong>
-        <p class="lead">{{loanDetails.loanAmmount}}</p>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <strong>Loan Tenure:</strong>
-        <p class="lead">{{loanDetails.loanTenure}}</p>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <strong>Rate Of Interest:</strong>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <strong>Name:</strong>
         <p class="lead">
-          {{loanDetails.rateOfInterest}}
+          {{ loanDetails.firstName }} - {{ loanDetails.lastName }}
         </p>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <strong>Email:</strong>
+        <p class="lead">{{ loanDetails.emailId }}</p>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <strong>Age:</strong>
+        <p class="lead">{{ loanDetails.age }}</p>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <strong>Gender:</strong>
+        <div
+          *ngIf="loanDetails.gender === 'm'; then maleBlock; else femaleBlock"
+        ></div>
+
+        <ng-template #maleBlock>
+          <p class="lead">Male</p>
+        </ng-template>
+
+        <ng-template #femaleBlock>
+          <p class="lead">Female</p>
+        </ng-template>
+
+        <!-- <p class="lead">Male</p> -->
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <strong>Mobile No:</strong>
+        <p class="lead">{{ loanDetails.mobileNo }}</p>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <strong>Account No:</strong>
+        <p class="lead">{{ loanDetails.accountNo }}</p>
       </div>
     </div>
 
     <hr />
 
-    <!-- showing vehicle information -->
-    <h5 class="display-5">Vehicle Details</h5>
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-        <strong>Vehicle Make:</strong>
-        <p class="lead">{{loanDetails.carMake}}</p>
+    <!-- if the user has the loan -->
+    <div>
+      <!-- showing loan information -->
+      <h5 class="display-5">Your Loan Details</h5>
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+          <strong>Loan Ammount:</strong>
+          <p class="lead">{{ loanDetails.loanAmmount }}</p>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+          <strong>Loan Tenure:</strong>
+          <p class="lead">{{ loanDetails.loanTenure }}</p>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+          <strong>Rate Of Interest:</strong>
+          <p class="lead">
+            {{ loanDetails.rateOfInterest }}
+          </p>
+        </div>
       </div>
 
-      <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-        <strong>Model:</strong>
-        <p class="lead">{{loanDetails.carModel}}</p>
+      <hr />
+
+      <!-- showing vehicle information -->
+      <h5 class="display-5">Vehicle Details</h5>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+          <strong>Vehicle Make:</strong>
+          <p class="lead">{{ loanDetails.carMake }}</p>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+          <strong>Model:</strong>
+          <p class="lead">{{ loanDetails.carModel }}</p>
+        </div>
       </div>
+
+      <hr />
+      <h5 class="display-4">Review Application Documents</h5>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+          <a href="#">
+            <button class="btn btn-outline-dark p-4 doc-btn" role="bo">
+              View Adhaar Card
+            </button>
+          </a>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+          <button class="btn btn-outline-dark p-4">View Pan Card</button>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+          <button class="btn btn-outline-dark p-4">View salary slip</button>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+          <button class="btn btn-outline-dark p-4">View photo</button>
+        </div>
+      </div>
+
+      <hr />
+
+      <button (click)="approveLoan()" class="btn btn-outline-primary p-4">
+        Approve
+      </button>
+      <button (click)="rejectLoan()" class="btn btn-outline-danger m-4 p-4">
+        Reject
+      </button>
+      <a (click)="navigateBack()">Go Back</a>
     </div>
+  </div>
+</ng-template>
 
-
-    <hr>
-    <h5 class="display-4">Review Application Documents</h5>
-
-    <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-            <a href="#">
-                <button class="btn btn-outline-dark p-4 doc-btn" role="bo">View Adhaar Card</button>
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-            <button class="btn btn-outline-dark p-4">View Pan Card</button>
-        </div>
-
-        <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-            <button class="btn btn-outline-dark p-4">View salary slip</button>
-        </div>
-
-        <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-            <button class="btn btn-outline-dark p-4">View photo</button>
-        </div>
-    </div>
-
-    <hr>
-
-    <button (click)="approveLoan()" class="btn btn-outline-primary p-4">Approve</button>
-    <button (click)="rejectLoan()" class="btn btn-outline-danger m-4 p-4">Reject</button>
-    <a (click)="navigateBack()">Go Back</a>
-
-</div>
-
-
-
-</div>
+<ng-template #noAdmin>
+  <h2 class="display-2">Restricted Page</h2>
+</ng-template>

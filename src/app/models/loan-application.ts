@@ -14,6 +14,7 @@ export class LoanApplication {
     constructor(Lappid:number,
         Uid:number,
         Vid:number,
+        principalAmmount:number,
         LoanAmmount:number,
         LoanTenure:number,
         RateOfInterest:number,
@@ -24,6 +25,7 @@ export class LoanApplication {
             this.lappid = Lappid;
             this.uid = Uid;
             this.vid = Vid;
+            this.principalAmmount = principalAmmount;
             this.loanAmmount = LoanAmmount;
             this.loanTenure = LoanTenure;
             this.rateOfInterest = RateOfInterest;

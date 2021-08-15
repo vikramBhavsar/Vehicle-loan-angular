@@ -11,6 +11,8 @@ import { LoanApplicationService } from '../services/loan-application.service';
 })
 export class DetailLoanApplicationComponent implements OnInit {
 
+  public sessionStorage = sessionStorage;
+
   loanAppId!:number;
 
   loanApplication!:LoanApplication;

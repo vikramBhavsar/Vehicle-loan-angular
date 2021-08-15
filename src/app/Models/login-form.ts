@@ -1,6 +1,17 @@
 export class LoginForm {
-  
+    
+    uid!:number;
     emailId!:string;
     apassword!:string;
-   public uid!:number;
+
+    constructor(){}
+}
+
+export class AdminForm{
+    aid!:number;
+    aname!:string;
+    emailId!:string;
+    apassword!:string;
+    
+    constructor(){}
 }

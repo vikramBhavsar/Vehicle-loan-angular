@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validator } from '@angular/forms';
+import { ageValidation } from '../Custom-Validations/customFormValidation';
+
+
 
 @Component({
   selector: 'app-eligibity-check',
@@ -12,8 +15,8 @@ export class EligibityCheckComponent implements OnInit {
   isEligible:boolean = false;
 
   ceform = new FormGroup({
-    carType : new FormControl(''),
-    age : new FormControl(),
+    carType : new FormControl(),
+    age : new FormControl(ageValidation),
     salary : new FormControl(),
     toe : new FormControl(),
     existingEMI : new FormControl(0),
@@ -21,6 +24,11 @@ export class EligibityCheckComponent implements OnInit {
     loanTenure :  new FormControl(),
     rateOfInterest: new FormControl(),
   });
+
+
+  get age(){
+    return this.ceform.get("age");
+  }
 
   
   emiChecked:boolean = false;
