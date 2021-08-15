@@ -1,1 +1,153 @@
-<p>loan-offer works!</p>
+<div class="container">
+  <h2 class="display-2">Select your loan offer here.</h2>
+  <h6 class="display-6">Your Vehicle Details</h6>
+  <hr class="mb-4" />
+
+  <div class="row m-4">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+      <!-- showing vehicle make -->
+      <dt class="col-lg-12 col-md-12 col-sm-12 col-12">Vehicle Make</dt>
+      <dd class="col-lg-12 col-md-12 col-sm-12 col-12">{{car_make}}</dd>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+      <!-- showing vehicle model -->
+      <dt class="col-lg-12 col-md-12 col-sm-12 col-12">Model</dt>
+      <dd class="col-lg-12 col-md-12 col-sm-12 col-12">{{car_model}}</dd>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm 4 col-6">
+      <!-- Showing ex showroom price -->
+      <dt class="col-lg-12 col-md-12 col-sm-12 col-12">Ex Showroom Price</dt>
+      <dd class="col-lg-12 col-md-12 col-sm-12 col-12">{{showroom_price}}</dd>
+    </div>
+
+    <hr class="mt-4" />
+
+    <div class="col-6">
+      <p>Select state of your car</p>
+    </div>
+    <div class="col-3">
+      <label class="form-check-label" for="haveEmiCheckBox">New car</label>
+    </div>
+
+    <div class="col-3">
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          (click)="usedCarSwitch()"
+          type="checkbox"
+          id="usedCarCheckBox"
+        />
+        <label class="form-check-label" for="usedCarCheckBox">Used Car</label>
+      </div>
+    </div>
+
+    <div *ngIf="usedCar; then useCar; else newCar"></div>
+    <ng-template #useCar>
+
+      
+
+      <div class="col-6">
+        <label for="carAge">Enter the age of your car</label>
+      </div>
+
+      <div class="col-6">
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Loans only available at ex showroom price for a used car"
+          max="10"
+          #agu="ngModel"
+          [(ngModel)]="age"
+          (ngModelChange)="ageUpdate()"
+        />
+        <small class="text-danger" *ngIf="agu.invalid && (agu.dirty || agu.touched)">
+          Maximum age should be below 10
+       </small>
+      </div>
+
+
+
+      <div class="col-12 m-2"></div>
+        <!--  loan ammount for used car -->
+      <div class="col-6">
+        <label for="Enter the loan ammount:"
+          >Enter Loan Ammount you require:
+        </label>
+      </div>
+
+      <div class="col-6">
+        <input
+          type="number"
+          class="form-control"
+          max="10000000"
+          min="10000"
+          [(ngModel)]="usedCarLoan"
+          #usedLoanAmmount="ngModel"
+          (ngModelChange)="usedCarLoanChange()"
+        />
+
+        <small class="text-danger" *ngIf="usedLoanAmmount.invalid && (usedLoanAmmount.dirty || usedLoanAmmount.touched)">
+          Minimum loan Ammount should be 10,000
+          Maximum Loan Ammount is 1,00,00,000
+       </small>
+      </div>
+    </ng-template>
+
+    <ng-template #newCar>
+      <div class="col-6">
+        <label for="Enter the loan ammount:"
+          >Enter Loan Ammount you require:
+        </label>
+      </div>
+
+      <div class="col-6">
+        <input
+          type="number"
+          class="form-control"
+          placeholder="upto 100% of On Road Price for a new car"
+          #newCarLoanA = "ngModel"
+          max="10000000"
+          min="10000"
+          [(ngModel)]="newCarLoanAmmount"
+          (ngModelChange)="newCarLoanChange()"
+        />
+
+        <small class="text-danger" *ngIf="newCarLoanA.invalid && (newCarLoanA.dirty || newCarLoanA.touched)">
+          Minimum loan Ammount should be 10,000
+          Maximum Loan Ammount is 1,00,00,000
+       </small>
+
+
+      </div>
+    </ng-template>
+  </div>
+
+  <h3 class="display-3 m-4">Checkout the loan offers below</h3>
+  <small></small>
+
+    <!-- USE ACTIVE HAS HOVER  -->
+
+  <div class="list-group" *ngFor="let loanO of loanOffers; index as idx">
+
+    <button class="list-group-item list-group-item-action loan-offer-item" aria-current="true" (click)="sendLoanOfferData(idx)">
+        <div class="d-flex w-100 justify-content-between">
+          <h6 class="mb-1 display-6">{{loanO.loanTenure}} Months EMI with total loan of {{loanO.loanAmmount | currency:'INR' }}</h6>
+          <!-- <button class="btn btn-outline-light">Apply Loan</button> -->
+          <!-- <small>3 days ago</small> -->
+        </div>
+        <div *ngIf="loanO.loanTenure < 12; then lessThanYear else moreThanYear"></div>
+        <ng-template #lessThanYear>
+            <p class="mb-1">Finish of your EMI in 3 months with total interest rate of {{loanO.rateOfInterest}}%</p>
+        </ng-template>
+
+        <ng-template #moreThanYear>
+            <p class="mb-1">Finish of your EMI in 3 months with interest rate of 6.7% p.a.</p>
+        </ng-template>
+
+        <!-- <p class="mb-1">Finish of your EMI in 3 months with total interest rate of 3.5%</p> -->
+        <small>Monthly EMI of {{monthlyEmi[idx]}}</small>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+
+<div class="c_fourth">
+<h1 class="c_fifth">EMPLOYEMENT DETAILS</h1>
+<form class="c_first" [formGroup]="employeeform" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Type Of Employement</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input"  type="radio" name="toe" id="Salaried" value="1" formControlName="toe">
+            <label class="form-check-label" for="Salaried">
+              Salaried
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input"  type="radio" name="toe" id="Self Employed" value="2" formControlName="toe" >
+            <label class="form-check-label" for="Self Employed">
+               Self Employed
+            </label>
+          </div>
+          <div *ngIf="Toe?.touched && Toe?.invalid" class="alert alert-danger">
+            <div *ngIf="Toe?.errors?.required">Name is required.</div>
+        </div>
+        </div>
+      </div>
+      </div>
+    <div class="form-group row">
+        <label for="salary" class="col-sm-2 col-form-label">Annual Salary</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" #check id="salary" placeholder="Enter Annual Salary" name="salary" formControlName="salary" required >
+        <div *ngIf="Salary?.invalid && Salary?.touched" >
+          <div *ngIf="Salary?.errors?.required" class="text-danger" >
+              Salary is required
+          </div>
+          <div *ngIf="Salary?.errors?.min" class="text-danger">
+              Minimum salary should be greater than 3 lakhs
+          </div> 
+        </div>
+        </div> 
+    </div>
+    
+    <div class="form-group row">
+      <div class="col-sm-2">Existing Emi</div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="existing_emi" id="Emi"  formControlName="existing_emi" > 
+          <label class="form-check-label" for="Emi">
+          </label>
+        </div>
+      </div>
+      <div *ngIf="status">
+        <div class="form-group row c_second">
+          <div class="col-sm-10">
+            <input type="number" class="form-control" placeholder="Enter your existing emi"  formControlName="emi" >
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary" [disabled]="!employeeform?.valid">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,29 @@
+<h3 class="display-3">Loan Application List</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Middle Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Loan Ammount</th>
+      <th scope="col">Loan Tenure</th>
+      <th scope="col">Interest Rate</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let alpp of loanApps;index as idx">
+      <th scope="row">{{idx}}</th>
+      <td>{{alpp.firstName}}</td>
+      <td>{{alpp.middleName}}</td>
+      <td>{{alpp.lastName}}</td>
+      <td>{{alpp.loanAmmount}}</td>
+      <td>{{alpp.loanTenure}}</td>
+      <td>{{alpp.rateOfInterest}}</td>
+      <td><a [routerLink]="['/detail-loan-application',alpp.lappid]" class="btn btn-outline-primary">View more</a></td>
+    </tr>
+    <tr></tr>
+  </tbody>
+</table>

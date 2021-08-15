@@ -1,71 +1,106 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleDetailss } from '../Models/vehicle-detailss';
 import { ApiCallService } from '../api-call.service';
+import { LoanApplication } from '../models/loan-application';
+import { Output, EventEmitter } from '@angular/core';
+import { ParentChildComService } from '../services/parent-child-com.service';
+import { LoanApplicationService } from '../services/loan-application.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicle-details',
   templateUrl: './vehicle-details.component.html',
-  styleUrls: ['./vehicle-details.component.css']
+  styleUrls: ['./vehicle-details.component.css'],
 })
 export class VehicleDetailsComponent implements OnInit {
+
 VehicleDetailsTbl: VehicleDetailss[] = [];
 selectedvalue!: string;
-selectedvalue1!:string;
+selectedvalue1!:string; 
 selectedvalue2!:string;
 
-  constructor(public service: ApiCallService) { 
-  
-   }
 
-   ngOnInit(): void {
-     console.log("hii");
-  this.service.getCarMake().subscribe((data: VehicleDetailss[])=>{
-   console.log(data)
-      this.VehicleDetailsTbl = data;
-    }
-     
-   );
+
+  // event emiter to emit the vehicle id to parent component i.e loan application
+  @Output() newItemEvent = new EventEmitter<number>();
+
+
+  carMakeList: VehicleDetailss[] = [];
+  carModelList:VehicleDetailss[] = [];
+  carPriceList:VehicleDetailss[] = [];
+  afterPriceSelect:VehicleDetailss[] = [];
+
+  vehicleID!:number;
+
+  scarMake!: string;
+  scarModel!: string;
+  s_exShowroomPrice!: string;
+
+  constructor(public service: ApiCallService,
+              private loanApplicationService:LoanApplicationService,
+              private componentCommunication:ParentChildComService,
+              private router:Router
+    ) {}
+
+  ngOnInit(): void {
+    console.log('hii');
+    this.service.getCarMake().subscribe((data: VehicleDetailss[]) => {
+      console.log(data);
+      this.carMakeList = data;
+    });
     //this.VehicleDetailsTbl = [{"carMakeId" : 1,"carMake":"Audi","carModel":"Audi A6","vId":1,"exShowroomPrice":6000000},{"carMakeId" : 2,"carMake":"Hyundai","carModel":"Hyundai AS","vId":2,"exShowroomPrice":7000000}]
-  
-}
-
-  choiceSelected(event:any) 
-  {
-    this.selectedvalue;
-    console.log(event.target.value);
-    console.log("hello");
-     this.service.getbyId(event.target.value).subscribe((data: VehicleDetailss[])=>{
-      console.log(data)
-      this.VehicleDetailsTbl = data; 
-      
-    })
-    
-  
   }
-  modelSelected(event:any) 
-{
-  this.selectedvalue1; 
-  console.log(event.target.value);
-  console.log("hello");
-  this.service.getcarModel(event.target.value).subscribe((data: VehicleDetailss[])=>{
-   console.log(data)
-  this.VehicleDetailsTbl = data; 
-      
-   })
+
+  choiceSelected(event: any) {
+    this.selectedvalue;
+    console.log("Below is selected car make ");
+    console.log(event.target.value);
+    this.service
+      .getbyId(event.target.value)
+      .subscribe((data: VehicleDetailss[]) => {
+        console.log(data);
+        this.carModelList = data;
+
+        this.scarMake = this.selectedvalue;
+      });
+  }
+
+  modelSelected(event: any) {
+    this.selectedvalue1;
+    console.log("VEHICLE ID IS")
+    console.log(event.target.value);
+    this.service
+      .getcarModel(event.target.value)
+      .subscribe((data: VehicleDetailss[]) => {
+        console.log(data);
+        this.carPriceList = data;
+        this.s_exShowroomPrice;
+        this.scarModel = this.selectedvalue1;
+      });
+  }
+
+  priceSelected(event: any) {
+    this.selectedvalue1;
+    console.log("Showing selected ex show room price");
+    console.log('Showing ID');
+    this.vehicleID = event.target.value
+    console.log(this.vehicleID);
+    this.service
+      .getshowroomprice(event.target.value)
+      .subscribe((data: VehicleDetailss[]) => {
+        console.log(data);
+        this.afterPriceSelect = data;
+      });
+  }
+
+
+  makeLoanObject(){
+    let loanApplication = new LoanApplication(0,Number(sessionStorage.getItem("userid")),Number(this.vehicleID),0,0,0,0,'y',0,1);
+    console.log(loanApplication);
+    this.loanApplicationService.createLoanApplication(loanApplication).subscribe(data=>{
+      this.componentCommunication.announceVehicleID(data.lappid.toString());
+      this.router.navigateByUrl("loan-offers");
+    });
+    
+  }
 }
-
-priceSelected(event:any)
-{
-  this.selectedvalue2; 
-  console.log(event.target.value);
-  console.log("hello");
-  this.service.getshowroomprice(event.target.value).subscribe((data: VehicleDetailss[])=>{
-   console.log(data)
-  this.VehicleDetailsTbl = data; 
-  })
-}
-  
-
-}
-
-
