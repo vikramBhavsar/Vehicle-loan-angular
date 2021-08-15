@@ -66,10 +66,38 @@
         </div>
       </div>
 
+<!-- suchet's dynamic EMI scheduler -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Month</th>
+          <th scope="col">Beginning amount</th>
+          <th scope="col">EMI</th>
+          <th scope="col">Interest paid</th>
+          <th scope="col">Principal paid</th>
+          <th scope="col">Balance</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="status">
+        <tr *ngFor="let m of Arr(num);index as i;"> 
+              <td>{{objArray[i].month}}</td>
+              <td>{{objArray[i].beginning_amount | number :'1.0-0'}}</td>
+              <td>{{emi | number:'1.0-0'}}</td>
+              <td>{{objArray[i].interest_paid | number:'1.0-0'}}</td>
+              <td>{{objArray[i].principal_paid | number:'1.0-0'}}</td>
+              <td>{{objArray[i].ending_balance | number:'1.0-0'}}</td>
+        </tr>
+      </tbody>
+      <button (click)="changestatus()" type="submit">Display emi scheduler</button> 
+    </table>
+      
+      <!-- suchet's dynamic EMI scheduler -->
+
       <hr />
 
       <!-- showing loan information -->
       <h5 class="display-5">Your Loan Details</h5>
+
       <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-6">
           <strong>Loan Ammount:</strong>
