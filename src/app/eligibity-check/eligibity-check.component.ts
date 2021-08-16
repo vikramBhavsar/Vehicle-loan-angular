@@ -43,85 +43,59 @@ export class EligibityCheckComponent implements OnInit {
     this.emiChecked = !this.emiChecked;
   }
 
-  checkEligible(cartype:string,age:number,salary:number,toe:string,exEMI:number,lAmmount:number,lTenure:number,rateOI:number){
-    rateOI = rateOI/12/100;
+  checkEligible(cartype:string,age:number,salary:number,toe:string,exEMI:number,lAmmount:number,lTenurey:number,rateOI:number){
+    rateOI = rateOI/1200;
+    let lTenure = lTenurey * 12;
+
     let monthlyEMI = lAmmount * rateOI * ( (Math.pow((1+rateOI),lTenure) / ( (Math.pow((1+rateOI),lTenure)) - 1)  ));
-    alert(`${monthlyEMI},${cartype},${age},${salary},${toe},${exEMI},${lAmmount},${lTenure},${rateOI}`);
+
+    let roundedEMI = Math.round(monthlyEMI)
+
+    alert(`Monthly EMI: ${roundedEMI}\n, Car Type: ${cartype},\n Age: ${age},\n SalaryL ${salary}, \n TOE: ${toe},\n EEMI: ${exEMI},\n Loan Amount${lAmmount},\n Loan Tenure: ${lTenure},\nROI: ${rateOI}`);
     let eligible:boolean;
 
-    if(cartype == '1'){ // new car type
 
-      if((age + Math.ceil(lTenure/12)) > 60){
-        eligible = false;
-      }else{  
-          if(toe == '1'){ // salaried
-            if(salary < 300000){
-              eligible = false
-            }else{
-              salary = salary - exEMI;
+    if((cartype == '1' && lTenure <= 84) || (cartype == '2' && lTenure <= 60)){ // checking the car type and age.
 
-              if((salary - monthlyEMI) > 30000){
+      if(toe=='1'){
+          if( age >= 21 && ((age+lTenurey) <= 60)){
+            if(salary >= 300000){
+              if(( (salary/12) - (exEMI + roundedEMI)) > (((salary/12) * 35) / 100)){
                 eligible = true;
               }else{
                 eligible = false;
-              }
-            }
-          }else{  // self employed
-            if(salary < 400000){
-              eligible = false
+              } // end of salary - exEmi
             }else{
-              rateOI = rateOI/12/100;
-              salary = salary - exEMI;
-
-              if((salary - monthlyEMI) > 30000){
-                eligible = true;
-              }else{
-                eligible = false;
-              }
-            }
-          }
-      }
-    }else{  // used car type
-
-
-      if(lTenure > 60){
-        eligible = false;
+              eligible = false;
+            } // end of salary < 30000
+          }else{
+            eligible = false;
+          } // age is not upto tenure
       }else{
-        if((age + Math.ceil(lTenure/12)) > 60){
-          eligible = false;
-        }else{  
-            if(toe == '1'){ // salaried
-              if( (salary*12) < 300000){
-                eligible = false
-              }else{
-                salary = salary - exEMI;
-  
-                if((salary - monthlyEMI) > 30000){
-                  eligible = true;
-                }else{
-                  eligible = false;
-                }
-              }
-            }else{  // self employed
-              if((salary*12) < 400000){
-                eligible = false
-              }else{
-                salary = salary - exEMI;
-  
-                if((salary - monthlyEMI) > 30000){
-                  eligible = true;
-                }else{
-                  eligible = false;
-                }
-              }
-            }
-        }
-      }
 
+        if( age >= 21 && ((age + lTenurey) <= 65)){
+          if(salary >= 400000){
+            if(((salary/12) - (exEMI + roundedEMI)) > (((salary/12) * 35) / 100)){
+              eligible = true;
+            }else{
+              eligible = false;
+            } // end of salary - exEmi
+          }else{
+            eligible = false;
+          } // end of salary < 30000
+        }else{
+          eligible = false;
+        } // age is not upto tenure
+      } // TOE is self employed.
+    }else{
+      eligible = false;
     }
 
+    // End of logic returning boolean
     this.isEligible = eligible;
+    alert(eligible);
   }
+  
 
   checkEligibility(){
     this.checkEligible(

@@ -100,6 +100,7 @@ selectedvalue2!:string;
     this.loanApplicationService.createLoanApplication(loanApplication).subscribe(data=>{
       this.componentCommunication.announceVehicleID(data.lappid.toString());
       this.router.navigateByUrl("loan-offers");
+      alert("data has been updated");
     });
     
   }

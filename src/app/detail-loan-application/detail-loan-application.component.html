@@ -9,7 +9,7 @@
 
 <ng-template #adminLoggedin>
   <div class="container m-4">
-    <h6 class="display-6">Loan Application form 1</h6>
+    <h5 class="display-5 bg-dark text-white p-2">Loan Application form No: {{loanDetails.lappid}}</h5>
 
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-12">
@@ -50,10 +50,29 @@
         <p class="lead">{{ loanDetails.mobileNo }}</p>
       </div>
 
-      <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-        <strong>Account No:</strong>
-        <p class="lead">{{ loanDetails.accountNo }}</p>
-      </div>
+
+
+        <!-- if condition to allow user to upodate loanDetails for the user. -->
+        <div *ngIf="loanDetails.accountNo == null; then noAccountNo else accountNo"></div>
+
+        <ng-template #noAccountNo>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+              <small class="text-muted">{{ loanDetails.firstName }} does not have any bank Account. Create one</small>
+              <label for=""></label>
+              <input type="text" class="form-control" placeholder="Enter Account Number for the user." [(ngModel)]="newAccountNo">
+              <button class="btn btn-outline-success m-2"  (click)="updateAccountNo()">Assign Bank Account</button>
+          </div>
+
+        </ng-template>
+
+        <!-- Account number is present to the user. -->
+        <ng-template #accountNo>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+            <strong>Account No:</strong>
+            <p class="lead">{{ loanDetails.accountNo }}</p>
+          </div>
+        </ng-template>
+
     </div>
 
     <hr />
@@ -61,11 +80,11 @@
     <!-- if the user has the loan -->
     <div>
       <!-- showing loan information -->
-      <h5 class="display-5">Your Loan Details</h5>
+      <h5 class="display-5 bg-dark text-white p-1">Your Loan Details</h5>
       <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-6">
           <strong>Loan Ammount:</strong>
-          <p class="lead">{{ loanDetails.loanAmmount }}</p>
+          <p class="lead">{{ loanDetails.loanAmmount | currency:'INR' }}</p>
         </div>
 
         <div class="col-lg-3 col-md-3 col-sm-6 col-6">
@@ -84,7 +103,7 @@
       <hr />
 
       <!-- showing vehicle information -->
-      <h5 class="display-5">Vehicle Details</h5>
+      <h5 class="display-5 bg-dark text-white p-1">Vehicle Details</h5>
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-6">
           <strong>Vehicle Make:</strong>
@@ -97,7 +116,29 @@
         </div>
       </div>
 
+
       <hr />
+
+      <!-- showing vehicle information -->
+      <h5 class="display-5 bg-dark text-white p-1">Employment Details</h5>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+          <strong>Yearly Income</strong>
+          <p class="lead">{{ loanDetails.yearlyIncome | currency:'INR' }}</p>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+          <strong>Employement Type</strong>
+          <p class="lead">{{ loanDetails.employmentType }}</p>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+          <strong>Existing EMI</strong>
+          <p class="lead">{{ loanDetails.existingEmiMonthly }}</p>
+        </div>
+      </div>
+
+      <!-- <hr />
       <h5 class="display-4">Review Application Documents</h5>
 
       <div class="row">
@@ -120,7 +161,7 @@
         <div class="col-lg-3 col-md-3 col-sm-3 col-3">
           <button class="btn btn-outline-dark p-4">View photo</button>
         </div>
-      </div>
+      </div> -->
 
       <hr />
 

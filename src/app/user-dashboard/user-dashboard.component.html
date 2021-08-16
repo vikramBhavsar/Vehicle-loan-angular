@@ -14,7 +14,7 @@
     <!-- if the user has the loan -->
 
     <ng-template #hasBlock>
-      <h4 class="display-4">Your Info</h4>
+      <h4 class="display-4 bg-dark text-white p-2 mt-2">Your Info</h4>
 
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12">
@@ -61,46 +61,19 @@
         </div>
 
         <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-          <strong>Accout No:</strong>
+          <strong>Account No:</strong>
           <p class="lead">{{ userDashboard?.accountNo }}</p>
         </div>
       </div>
 
-<!-- suchet's dynamic EMI scheduler -->
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Month</th>
-          <th scope="col">Beginning amount</th>
-          <th scope="col">EMI</th>
-          <th scope="col">Interest paid</th>
-          <th scope="col">Principal paid</th>
-          <th scope="col">Balance</th>
-        </tr>
-      </thead>
-      <tbody *ngIf="status">
-        <tr *ngFor="let m of Arr(num);index as i;"> 
-              <td>{{objArray[i].month}}</td>
-              <td>{{objArray[i].beginning_amount | number :'1.0-0'}}</td>
-              <td>{{emi | number:'1.0-0'}}</td>
-              <td>{{objArray[i].interest_paid | number:'1.0-0'}}</td>
-              <td>{{objArray[i].principal_paid | number:'1.0-0'}}</td>
-              <td>{{objArray[i].ending_balance | number:'1.0-0'}}</td>
-        </tr>
-      </tbody>
-      <button (click)="changestatus()" type="submit">Display emi scheduler</button> 
-    </table>
-      
-      <!-- suchet's dynamic EMI scheduler -->
-
       <hr />
 
       <!-- showing loan information -->
-      <h5 class="display-5">Your Loan Details</h5>
+      <h5 class="display-5 bg-dark text-white p-2">Your Loan Details</h5>
 
       <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-          <strong>Loan Ammount:</strong>
+          <strong>Loan Amount:</strong>
           <p class="lead">{{ userDashboard?.loanAmmount | currency: "INR" }}</p>
         </div>
 
@@ -120,7 +93,7 @@
       <hr />
 
       <!-- showing vehicle information -->
-      <h5 class="display-5">Vehicle Details</h5>
+      <h5 class="display-5 bg-dark text-white p-2">Vehicle Details</h5>
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-6">
           <strong>Vehicle Make:</strong>
@@ -135,44 +108,36 @@
 
       <hr />
 
+
+      <h5 class="display-5 bg-dark text-white p-2">EMI Scheduler</h5>
+
+      <!-- suchet's dynamic EMI scheduler -->
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Month</th>
+          <th scope="col">Beginning amount</th>
+          <th scope="col">EMI</th>
+          <th scope="col">Interest paid</th>
+          <th scope="col">Principal paid</th>
+          <th scope="col">Balance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of Arr(num);index as i;"> 
+              <td>{{objArray[i].month}}</td>
+              <td>{{objArray[i].beginning_amount | number :'1.0-0'}}</td>
+              <td>{{emi | number:'1.0-0'}}</td>
+              <td>{{objArray[i].interest_paid | number:'1.0-0'}}</td>
+              <td>{{objArray[i].principal_paid | number:'1.0-0'}}</td>
+              <td>{{objArray[i].ending_balance | number:'1.0-0'}}</td>
+        </tr>
+      </tbody>
+    </table>
+      
+      <!-- suchet's dynamic EMI scheduler -->
+
       <!-- showing EMI information -->
-      <h5 class="display-5">EMI Schedule</h5>
-
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col" class="lead">Date</th>
-            <th scope="col">Pricipal</th>
-            <th scope="col">Interest</th>
-            <th scope="col">Total payment</th>
-            <th scope="col">Balance</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">21st July 2021</th>
-            <td>14000</td>
-            <td>7000.15</td>
-            <td>21000</td>
-            <td>9873000</td>
-          </tr>
-          <tr>
-            <th scope="row">21st Aug 2021</th>
-            <td>14000</td>
-            <td>7000.15</td>
-            <td>21000</td>
-            <td>9873000</td>
-          </tr>
-
-          <tr>
-            <th scope="row">21st Aug 2021</th>
-            <td>14000</td>
-            <td>7000.15</td>
-            <td>21000</td>
-            <td>9873000</td>
-          </tr>
-        </tbody>
-      </table>
     </ng-template>
 
     <!-- if the user does not have the loan -->

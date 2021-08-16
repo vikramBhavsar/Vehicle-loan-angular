@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Personalinfo } from '../Models/personalinfo';
 import { ApiCallService } from '../Services/api-call.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-personal-details',
@@ -12,7 +12,8 @@ export class PersonalDetailsComponent implements OnInit {
   user!: Personalinfo;
 
   constructor(public service: ApiCallService,
-            public router:Router) {}
+            public router:Router,
+            private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     if (sessionStorage.getItem('userid') != null) {
@@ -25,7 +26,8 @@ export class PersonalDetailsComponent implements OnInit {
   }
 
 
-  next(){
-    this.router.navigateByUrl("../employment-details");
-  }
+  // next(){
+  //   // this.router.navigate(['../employment-details'], {relativeTo: this.activatedRoute});
+  //   // this.router.navigateByUrl("../employment-details");
+  // }
 }

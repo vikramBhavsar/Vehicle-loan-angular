@@ -28,4 +28,12 @@ export class UserRegistrationService {
     return this.httpClient.post<Userinfo>(this.ApiUrl + '/userinfo', JSON.stringify(ruser), this.httpOptions)    
   } 
 
+  updateUserAccountNo(userinfo:Userinfo){
+    return this.httpClient.put<Userinfo>(this.ApiUrl + '/update-account-info',JSON.stringify(userinfo), this.httpOptions);
+  }
+
+  getUserInfoById(uid:number) :Observable<Userinfo>{
+    return this.httpClient.get<Userinfo>(this.ApiUrl+`/get-user-info/${uid}`);
+  }
+
 }

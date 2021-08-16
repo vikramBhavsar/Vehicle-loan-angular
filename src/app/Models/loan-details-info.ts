@@ -4,6 +4,7 @@ export class LoanDetailsInfo {
     lappid!:number;
     uid!:number;
     approvedOn!:string;
+    principalAmmount!:number;
     loanAmmount!:number;
     loanTenure!:number;
     rateOfInterest!:number;

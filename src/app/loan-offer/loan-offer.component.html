@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container main-background p-4 m-4">
   <h2 class="display-2">Select your loan offer here.</h2>
   <h6 class="display-6">Your Vehicle Details</h6>
   <hr class="mb-4" />
@@ -73,7 +73,7 @@
         <!--  loan ammount for used car -->
       <div class="col-6">
         <label for="Enter the loan ammount:"
-          >Enter Loan Ammount you require:
+          >Enter Loan Amount you require:
         </label>
       </div>
 
@@ -89,8 +89,8 @@
         />
 
         <small class="text-danger" *ngIf="usedLoanAmmount.invalid && (usedLoanAmmount.dirty || usedLoanAmmount.touched)">
-          Minimum loan Ammount should be 10,000
-          Maximum Loan Ammount is 1,00,00,000
+          Minimum loan Amount should be 10,000
+          Maximum Loan Amount is 1,00,00,000
        </small>
       </div>
     </ng-template>
@@ -98,7 +98,7 @@
     <ng-template #newCar>
       <div class="col-6">
         <label for="Enter the loan ammount:"
-          >Enter Loan Ammount you require:
+          >Enter Loan Amount you require:
         </label>
       </div>
 
@@ -115,8 +115,8 @@
         />
 
         <small class="text-danger" *ngIf="newCarLoanA.invalid && (newCarLoanA.dirty || newCarLoanA.touched)">
-          Minimum loan Ammount should be 10,000
-          Maximum Loan Ammount is 1,00,00,000
+          Minimum loan Amount should be 10,000
+          Maximum Loan Amount is 1,00,00,000
        </small>
 
 
@@ -147,7 +147,7 @@
         </ng-template>
 
         <!-- <p class="mb-1">Finish of your EMI in 3 months with total interest rate of 3.5%</p> -->
-        <small>Monthly EMI of {{monthlyEmi[idx]}}</small>
+        <!-- <small>Monthly EMI of {{monthlyEmi[idx]}}</small> -->
     </button>
   </div>
 </div>

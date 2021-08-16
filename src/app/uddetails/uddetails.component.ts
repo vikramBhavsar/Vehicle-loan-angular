@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadDocumentService } from '../upload-document.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-uddetails',
@@ -23,7 +24,8 @@ export class UDDetailsComponent implements OnInit {
     file3?: File ; // Variable to store file
   
     // Inject service 
-    constructor(private service: UploadDocumentService) { }
+    constructor(private service: UploadDocumentService,
+                private router: Router) { }
   
     ngOnInit(): void {
     }
@@ -114,5 +116,11 @@ export class UDDetailsComponent implements OnInit {
                 }
             }
         );
+    }
+
+
+    goHome(){
+        alert("Your data has been uploaded. Wait for the admin to confirm your application");
+        this.router.navigateByUrl("user_dashboard");
     }
 }

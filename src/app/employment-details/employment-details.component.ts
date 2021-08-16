@@ -75,6 +75,7 @@ export class EmploymentDetailsComponent implements OnInit {
     this.service.create(this.employee).subscribe(res => {
       console.log(res)
       console.log('Employee created!')
+      alert("Data uploaded successfully");
      // this.router.navigateByUrl('/home/')
     }); 
     this.employeeform.get("emi")?.reset();

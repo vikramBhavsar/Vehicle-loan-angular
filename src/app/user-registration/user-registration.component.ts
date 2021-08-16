@@ -31,7 +31,7 @@ export class UserRegistrationComponent implements OnInit {
     uaddress:new FormControl('',Validators.required),
     ustate:new FormControl('',Validators.required),
     ucity:new FormControl('',Validators.required),
-    pinCode:new FormControl('',Validators.required),
+    pinCode:new FormControl('',[Validators.required,Validators.maxLength(6),Validators.minLength(6)]),
     accountNo:new FormControl()
   },{validators:Passwordvalidator})
 
@@ -140,7 +140,10 @@ onsubmit()
     console.log('user created!'); 
      this.service.createuser(this.ruser).subscribe(data => {
       console.log(data)
-      console.log('userinfo created!')
+      console.log('userinfo created!');
+      alert("User Registered!")
+
+      this.router.navigateByUrl("user_login");
     }); 
    });   
 

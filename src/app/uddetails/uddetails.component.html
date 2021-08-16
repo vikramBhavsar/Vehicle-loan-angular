@@ -14,8 +14,8 @@
         <!-- Shareable short link of  uoloaded file -->
         <div class="container text-center jumbotron" *ngIf="shortLink">
           <h2>Uploaded Successfully</h2>
-          <h4>Visit Here</h4>
-          <a href="{{ shortLink }}" target="_blank">{{ shortLink }}</a>
+          <!-- <h4>Visit Here</h4>
+          <a href="{{ shortLink }}" target="_blank">{{ shortLink }}</a> -->
         </div>
         
         <!--Flag variable is used here-->
@@ -39,8 +39,8 @@
 <!-- Shareable short link of  uoloaded file -->
 <div class="container text-center jumbotron" *ngIf="shortLink1">
   <h2>Uploaded Successfully</h2>
-  <h4>Visit Here</h4>
-  <a href="{{ shortLink1 }}" target="_blank">{{ shortLink1 }}</a>
+  <!-- <h4>Visit Here</h4>
+  <a href="{{ shortLink1 }}" target="_blank">{{ shortLink1 }}</a> -->
 </div>
 
 <!--Flag variable is used here-->
@@ -64,8 +64,8 @@
         <!-- Shareable short link of  uoloaded file -->
         <div class="container text-center jumbotron" *ngIf="shortLink2">
           <h2>Uploaded Successfully</h2>
-          <h4>Visit Here</h4>
-          <a href="{{ shortLink2 }}" target="_blank">{{ shortLink2 }}</a>
+          <!-- <h4>Visit Here</h4>
+          <a href="{{ shortLink2 }}" target="_blank">{{ shortLink2 }}</a> -->
         </div>
         
         <!--Flag variable is used here-->
@@ -88,8 +88,8 @@
         <!-- Shareable short link of  uoloaded file -->
         <div class="container text-center jumbotron" *ngIf="shortLink3">
           <h2>Uploaded Successfully</h2>
-          <h4>Visit Here</h4>
-          <a href="{{ shortLink3 }}" target="_blank">{{ shortLink3 }}</a>
+          <!-- <h4>Visit Here</h4>
+          <a href="{{ shortLink3 }}" target="_blank">{{ shortLink3 }}</a> -->
         </div>
         
         <!--Flag variable is used here-->
@@ -102,5 +102,5 @@
 </div>
 
 <div class="text-center">
-  <button class="btn btn-primary">Submit</button>
+  <button class="btn btn-primary" type="button" (click)="goHome()">Submit</button>
 </div>

@@ -16,4 +16,7 @@ export class UserDashboardView {
     uid!:number;
     vId!:number;
     lappid!:number;
+    yearlyIncome!:number;
+    employmentType!:number;
+    existingEmiMonthly!:number;
 }

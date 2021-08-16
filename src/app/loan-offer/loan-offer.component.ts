@@ -159,11 +159,12 @@ export class LoanOfferComponent implements OnInit {
     }
     this.loanApplicationService.updateLoanApplication(this.loanApp).subscribe(data =>{
      console.log(data); 
+     alert("Data has been updated.");
     });
 
 
     // moving on to next module.
-    this.router.navigateByUrl("upload-documents");
+    // this.router.navigateByUrl("upload-documents");
   }
 }
 
