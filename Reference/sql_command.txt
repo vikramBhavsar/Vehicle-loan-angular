@@ -116,9 +116,55 @@ INSERT INTO TOE_TBL values ('Salaried');
 INSERT INTO TOE_TBL values ('Self Employed');
 INSERT INTO USER_TBL VALUES ('vikrambhavsar@lntinfotech.com','pass123');
 INSERT INTO USER_INFO_TBL VALUES (1,'Vikram','Manoj','Bhavsar',22,'m','9865745815','Thane Circle','Maharashtra','Thane','411578','V-SKY4587');
-INSERT INTO CAR_MAKE_TBL VALUES('Hundai');
-INSERT INTO VEHICLE_DETAILS_TBL VALUES (1,3500000,'Tuscon');
-INSERT INTO VEHICLE_DETAILS_TBL VALUES (1,2400000,'Elantra');
+
+-- ketaki's insert queries
+
+
+
+INSERT INTO CAR_MAKE_TBL ( CAR_MAKE)
+VALUES ('Audi');
+INSERT INTO CAR_MAKE_TBL ( CAR_MAKE)
+VALUES ('BMW'),('Chevrolet'),('Fiat'),('Ford'),('Honda'),('Hyundai'),('Mercedes');
+
+ 
+
+select * from vehicle_details_tbl
+
+
+INSERT INTO VEHICLE_DETAILS_TBL ( CAR_MAKE_ID,EX_SHOWROOM_PRICE,CAR_MODEL)
+VALUES (1,'61,81,000','Audi A6')
+INSERT INTO VEHICLE_DETAILS_TBL ( CAR_MAKE_ID,EX_SHOWROOM_PRICE,CAR_MODEL)
+VALUES (1,'47,61,000','Audi A4'),(1,'48,89,000','Audi Q2'),
+(1,'80,49,000','Audi S5 Sportback'),(1,'35,00,000','Audi A3 2021'),
+(2,'43,58,000','BMW 3 Series'),(2,'38,85,000','BMW X1'),(2,'38,88,000','BMW 2 Series Gran Coupe'),
+(2,'66,54,000','BMW Z4'),(2,'95,84,000','BMW X7')
+INSERT INTO VEHICLE_DETAILS_TBL ( CAR_MAKE_ID,EX_SHOWROOM_PRICE,CAR_MODEL)
+VALUES
+(3,'5,98,000','Chevrolet Aveo'),(3,'4,07,000','Chevrolet Aveo U-VA'),(3,'4,32,000','Chevrolet Beat'),
+(3,'25,13,000','Chevrolet Captiva'),(3,'50,00,000','Chevrolet Corvette'),
+(4,'9,89,000','Fiat Abarth Avventura'),(4,'3,58,000','Fiat Adventure'),(4,'6,80,000','Fiat Avventura'),
+(4,'6,77,000','Fiat Avventura Urban Cross'),(4,'16,00,000','Fiat Ducato')
+INSERT INTO VEHICLE_DETAILS_TBL ( CAR_MAKE_ID,EX_SHOWROOM_PRICE,CAR_MODEL)
+VALUES
+(5,'8,19,000','Ford Ecosport'),(5,'33,81,000','Ford Endeaver'),(5,'5,82,000','Ford Figo'),
+(5,'7,28,000','Ford Freestyle'),(5,'7,28,000','Ford Aspire'),
+(6,'6,34,000','Honda Amaze'),(6,'11,19,000','Honda All New City'),(6,'8,90,000','Honda WR-V'),
+(6,'7,75,000','Honda Jazz'),(6,'9,33,000','Honda City')
+INSERT INTO VEHICLE_DETAILS_TBL ( CAR_MAKE_ID,EX_SHOWROOM_PRICE,CAR_MODEL)
+VALUES
+(7,'6,99,000','Hyundai Venue'),(7,'10,15,000','Hyundai Creta'),(7,'6,91,000','Hyundai i20'),
+(7,'5,28,000','Hyundai Grand i10 Nios'),(7,'9,28,000','Hyundai Verna')
+INSERT INTO VEHICLE_DETAILS_TBL ( CAR_MAKE_ID,EX_SHOWROOM_PRICE,CAR_MODEL)
+VALUES
+(8,'58,80,000','Mercedes-Benz GLA')
+INSERT INTO VEHICLE_DETAILS_TBL ( CAR_MAKE_ID,EX_SHOWROOM_PRICE,CAR_MODEL)
+VALUES(8,'64,30,000','Mercedes-Benz GLC')
+INSERT INTO VEHICLE_DETAILS_TBL ( CAR_MAKE_ID,EX_SHOWROOM_PRICE,CAR_MODEL)
+VALUES
+(8,'86,39,000','Mercedes-Benz CLS'),(8,'83,10,000','Mercedes-Benz GLC Coupe')
+--above is ketaki's insert queries
+
+
 INSERT INTO STATUS_TBL VALUES ('Pending')
 INSERT INTO STATUS_TBL VALUES ('Approved')
 INSERT INTO STATUS_TBL VALUES ('Disapproved')
