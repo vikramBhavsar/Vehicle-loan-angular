@@ -188,4 +188,7 @@ AS
 SELECT l.LAPPID,Ui.FIRST_NAME, UI.MIDDLE_NAME, UI.LAST_NAME,L.LOAN_AMMOUNT,L.LOAN_TENURE,L.RATE_OF_INTEREST,L.STATUS_ID FROM LOAN_APPLICATION_TBL L
 INNER JOIN USER_INFO_TBL UI ON UI.UID = L.UID
 
-
+-- view client details in admin dashboard
+create view VIEW_CLIENT_DETAILS
+as
+select u.uid,ui.first_name,ui.last_name,ui.age,ui.gender,ui.mobile_no,u.email_id,ui.account_no from USER_INFO_TBL ui join USER_TBL u on ui.uid=u.uid
