@@ -28,6 +28,10 @@ import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.compo
 import { HttpClientModule } from '@angular/common/http';
 
 
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,11 +51,12 @@ import { HttpClientModule } from '@angular/common/http';
     AdminRegistrationComponent,
     PaymentGatewayComponent
     
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    FormsModule, 
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
